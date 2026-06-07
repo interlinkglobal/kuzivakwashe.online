@@ -4,7 +4,7 @@ const principles = [
   { n: "01", t: "Understand the system before changing it.", d: "Read the topology, the data flow, the failure modes. Code comes after comprehension." },
   { n: "02", t: "Reliability is a feature.", d: "Boring infrastructure is the platform on which interesting products are built." },
   { n: "03", t: "Automate the second time.", d: "If a task is done twice, it should be codified by the third." },
-  { n: "04", t: "Security is a posture, not a project.", d: "Layered defaults, least privilege, observability — every day." },
+  { n: "04", t: "Security is a posture, not a project.", d: "Layered defaults, least privilege, observability, every day." },
   { n: "05", t: "Optimize for clarity.", d: "Simple architectures, named primitives, and runbooks people actually read." },
   { n: "06", t: "Stay a beginner.", d: "Curiosity outperforms confidence over a long career." },
 ];

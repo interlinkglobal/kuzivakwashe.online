@@ -46,7 +46,7 @@ export function Capabilities() {
       <SectionHeader
         eyebrow="Core Capabilities"
         title={<>How I move from <span className="text-gradient-neon">problem to platform.</span></>}
-        description="Four disciplines, applied together — so the systems I deliver are not only built, but operable, defensible, and useful."
+        description="Four disciplines, applied together, so the systems I deliver are not only built, but operable, defensible, and useful."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-2">

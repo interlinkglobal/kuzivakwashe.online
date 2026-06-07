@@ -18,7 +18,7 @@ export function Contact() {
               Have a system to <span className="text-gradient-neon">build, fix or scale?</span>
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">
-              Whether it's an infrastructure overhaul, a cloud migration, a security review, or an AI integration —
+              Whether it's an infrastructure overhaul, a cloud migration, a security review, or an AI integration ,
               I'd love to hear what you're working on.
             </p>
 
@@ -54,7 +54,7 @@ export function Contact() {
             className="glass rounded-2xl p-6 sm:p-8"
             onSubmit={(e) => {
               e.preventDefault();
-              alert("Thanks — I'll be in touch shortly.");
+              alert("Thanks, I'll be in touch shortly.");
             }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -83,7 +83,7 @@ export function Contact() {
       </div>
 
       <footer className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 text-xs text-muted-foreground sm:flex-row">
-        <div className="font-mono">© 2026 K.C.T. — All systems operational.</div>
+        <div className="font-mono">© 2026 K.C.T., All systems operational.</div>
         <div className="font-mono">Built with intention · Designed for depth</div>
       </footer>
     </Section>
