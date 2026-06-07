@@ -1,5 +1,5 @@
 import { Section, SectionHeader } from "./Section";
-import infra from "@/assets/infra-servers.jpg";
+import infra from "@/assets/network-dashboard.png";
 import { Activity, Cpu, HardDrive, Wifi } from "lucide-react";
 
 const metrics = [
@@ -24,7 +24,7 @@ export function Infrastructure() {
       <SectionHeader
         eyebrow="Infrastructure & Systems"
         title={<>Enterprise-grade<br /><span className="text-gradient-neon">operations.</span></>}
-        description="From the rack to the region. I think in failure domains, blast radius, and SLOs — and design the boring reliability that lets the interesting work happen."
+        description="From the rack to the region. I think in failure domains, blast radius, and SLOs, and design the boring reliability that lets the interesting work happen."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">

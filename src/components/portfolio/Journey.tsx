@@ -9,7 +9,7 @@ const timeline = [
   { year: "Earlier", title: "Networking & Systems Foundations", body: "Hands-on with routing, switching, virtualization, and Linux at scale." },
 ];
 
-const certs = ["AWS Solutions Architect", "CKA — Certified Kubernetes Admin", "CompTIA Security+", "CCNA", "Terraform Associate", "Azure Administrator"];
+const certs = ["AWS Solutions Architect", "CKA, Certified Kubernetes Admin", "CompTIA Security+", "CCNA", "Terraform Associate", "Azure Administrator"];
 
 export function Journey() {
   return (
@@ -17,7 +17,7 @@ export function Journey() {
       <SectionHeader
         eyebrow="Experience & Journey"
         title={<>A continuous build. <span className="text-gradient-neon">Always shipping.</span></>}
-        description="Roles change, technologies evolve — the throughline is curiosity and the will to make systems work better than they did yesterday."
+        description="Roles change, technologies evolve, the throughline is curiosity and the will to make systems work better than they did yesterday."
       />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr]">

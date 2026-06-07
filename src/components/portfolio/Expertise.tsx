@@ -6,11 +6,11 @@ import {
 
 const domains = [
   { icon: Network, name: "Networking", desc: "Routing, switching, VLANs, VPNs, SD-WAN, and end-to-end connectivity design.", glow: "cyan" },
-  { icon: Cloud, name: "Cloud Platforms", desc: "AWS, Azure, GCP — architecting scalable, resilient cloud-native environments.", glow: "violet" },
-  { icon: Server, name: "Infrastructure", desc: "Hypervisors, containers, storage, and bare-metal — built for uptime.", glow: "magenta" },
+  { icon: Cloud, name: "Cloud Platforms", desc: "AWS, Azure, GCP, architecting scalable, resilient cloud-native environments.", glow: "violet" },
+  { icon: Server, name: "Infrastructure", desc: "Hypervisors, containers, storage, and bare-metal, built for uptime.", glow: "magenta" },
   { icon: Cog, name: "Systems Administration", desc: "Linux & Windows server fleets, hardening, monitoring, and patch lifecycles.", glow: "cyan" },
   { icon: Shield, name: "Cybersecurity", desc: "Defense-in-depth, IAM, zero-trust, threat detection and incident response.", glow: "magenta" },
-  { icon: Database, name: "Databases", desc: "Relational and NoSQL — modeling, tuning, replication, and disaster recovery.", glow: "violet" },
+  { icon: Database, name: "Databases", desc: "Relational and NoSQL, modeling, tuning, replication, and disaster recovery.", glow: "violet" },
   { icon: Workflow, name: "Automation", desc: "IaC with Terraform & Ansible, CI/CD pipelines, scripting that scales.", glow: "cyan" },
   { icon: Code2, name: "Software Development", desc: "Full-stack engineering, APIs, microservices, and developer tooling.", glow: "violet" },
   { icon: BarChart3, name: "Data & Analytics", desc: "Pipelines, warehouses, dashboards, and decision-grade insights.", glow: "magenta" },
@@ -29,7 +29,7 @@ export function Expertise() {
       <SectionHeader
         eyebrow="Technology Overview"
         title={<>A broad stack.<br /><span className="text-gradient-neon">Engineered depth.</span></>}
-        description="Across ten core domains, I build systems that talk to each other — from the wire and the rack to the cloud, the dashboard, and the model."
+        description="Across ten core domains, I build systems that talk to each other, from the wire and the rack to the cloud, the dashboard, and the model."
       />
 
       <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

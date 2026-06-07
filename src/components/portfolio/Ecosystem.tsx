@@ -45,7 +45,7 @@ export function Ecosystem() {
       <SectionHeader
         eyebrow="Technology Ecosystem"
         title={<>The toolkit, <span className="text-gradient-neon">battle-tested.</span></>}
-        description="A curated set of platforms, languages, and frameworks I reach for — chosen for what they make possible, not what's loudest."
+        description="A curated set of platforms, languages, and frameworks I reach for, chosen for what they make possible, not what's loudest."
       />
 
       <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

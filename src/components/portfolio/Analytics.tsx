@@ -17,7 +17,7 @@ export function Analytics() {
       <SectionHeader
         eyebrow="Analytics & Intelligence"
         title={<>Decisions powered by <span className="text-gradient-neon">data you can trust.</span></>}
-        description="Telemetry, dashboards, and AI-driven insights — turning the firehose of operational data into clear, actionable signal."
+        description="Telemetry, dashboards, and AI-driven insights, turning the firehose of operational data into clear, actionable signal."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-12">
@@ -88,7 +88,7 @@ export function Analytics() {
               Peak traffic clusters around <span className="font-medium text-foreground">Tue 10–11 AM</span>. Auto-scale schedule updated.
             </li>
             <li className="rounded-xl border-l-2 border-[oklch(0.66_0.27_305)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
-              Database p95 climbing — <span className="font-medium text-foreground">index hint</span> proposed for <code className="font-mono text-xs">orders.user_id</code>.
+              Database p95 climbing, <span className="font-medium text-foreground">index hint</span> proposed for <code className="font-mono text-xs">orders.user_id</code>.
             </li>
             <li className="rounded-xl border-l-2 border-[oklch(0.70_0.32_340)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
               Anomaly detected on <span className="font-medium text-foreground">edge-eu-3</span>. Mitigation runbook drafted.

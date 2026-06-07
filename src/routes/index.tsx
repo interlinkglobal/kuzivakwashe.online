@@ -14,9 +14,9 @@ import { Contact } from "@/components/portfolio/Contact";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "K.C.T. — IT Specialist · Networks, Cloud, Security, AI" },
+      { title: "K.C.T., IT Specialist · Networks, Cloud, Security, AI" },
       { name: "description", content: "Portfolio of K.C.T., an IT specialist designing and operating resilient systems across networks, cloud, infrastructure, security, automation, data and AI." },
-      { property: "og:title", content: "K.C.T. — IT Specialist" },
+      { property: "og:title", content: "K.C.T., IT Specialist" },
       { property: "og:description", content: "End-to-end technology: networking, cloud, infrastructure, cybersecurity, automation, analytics, and AI." },
       { property: "og:type", content: "website" },
     ],
