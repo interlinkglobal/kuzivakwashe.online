@@ -142,42 +142,59 @@ export function Projects() {
               return (
                 <div
                   key={p.name}
-                  className="relative min-w-0 shrink-0 grow-0 basis-[82%] px-3 sm:basis-[60%] lg:basis-[44%]"
+                  className="relative min-w-0 shrink-0 grow-0 basis-[85%] px-3 sm:basis-[55%] md:basis-[42%] lg:basis-[32%]"
                 >
-                  <article
-                    className={`relative h-full overflow-hidden rounded-3xl glass p-7 transition-all duration-500 ease-out sm:p-8 ${
-                      isActive
-                        ? `scale-100 opacity-100 ${accentRing[p.accent]}`
-                        : "scale-[0.86] opacity-40 blur-[1px]"
+                  <div
+                    className={`relative aspect-square w-full transition-all duration-500 ease-out ${
+                      isActive ? "scale-100 opacity-100" : "scale-[0.82] opacity-40"
                     }`}
                   >
-                    <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accentGradient[p.accent]}`} />
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="font-mono text-[10px] uppercase tracking-widest text-[oklch(0.78_0.18_220)]">
-                          {p.tag}
+                    {/* floating glowing orbs behind the glass */}
+                    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+                      <div
+                        className={`absolute -top-10 -left-8 h-40 w-40 rounded-full bg-gradient-to-br ${accentGradient[p.accent]} opacity-60 blur-3xl animate-float`}
+                      />
+                      <div
+                        className={`absolute -bottom-12 -right-10 h-44 w-44 rounded-full bg-gradient-to-br ${accentGradient[p.accent]} opacity-50 blur-3xl animate-pulse-glow`}
+                      />
+                      <div className="absolute right-10 top-1/3 h-20 w-20 rounded-full bg-[oklch(0.78_0.18_220)] opacity-30 blur-2xl animate-float" style={{ animationDelay: "1.2s" }} />
+                    </div>
+
+                    <article
+                      className={`relative flex h-full w-full flex-col overflow-hidden rounded-3xl glass-strong p-6 backdrop-blur-3xl sm:p-7 ${
+                        isActive ? accentRing[p.accent] : ""
+                      }`}
+                    >
+                      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accentGradient[p.accent]}`} />
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="font-mono text-[10px] uppercase tracking-widest text-[oklch(0.78_0.18_220)]">
+                            {p.tag}
+                          </div>
+                          <h3 className="mt-1.5 font-display text-xl font-semibold leading-tight sm:text-2xl">{p.name}</h3>
                         </div>
-                        <h3 className="mt-2 font-display text-2xl font-semibold sm:text-3xl">{p.name}</h3>
-                      </div>
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full glass-strong text-foreground">
-                        <ArrowUpRight className="h-4 w-4" />
-                      </span>
-                    </div>
-                    <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">{p.desc}</p>
-                    <div className="mt-6 flex flex-wrap gap-1.5">
-                      {p.stack.map((s) => (
-                        <span
-                          key={s}
-                          className="rounded-md border border-border/60 bg-[oklch(0.2_0.08_278/0.4)] px-2 py-1 font-mono text-[10px] text-muted-foreground"
-                        >
-                          {s}
+                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full glass text-foreground">
+                          <ArrowUpRight className="h-4 w-4" />
                         </span>
-                      ))}
-                    </div>
-                    <div className="mt-6 border-t border-border/60 pt-4 font-mono text-xs text-foreground/80">
-                      {p.outcome}
-                    </div>
-                  </article>
+                      </div>
+                      <p className="mt-3 line-clamp-5 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">{p.desc}</p>
+                      <div className="mt-auto pt-4">
+                        <div className="flex flex-wrap gap-1">
+                          {p.stack.slice(0, 4).map((s) => (
+                            <span
+                              key={s}
+                              className="rounded-md border border-border/60 bg-[oklch(0.2_0.08_278/0.5)] px-1.5 py-0.5 font-mono text-[9px] text-muted-foreground"
+                            >
+                              {s}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="mt-3 border-t border-border/60 pt-2.5 font-mono text-[10px] leading-snug text-foreground/80">
+                          {p.outcome}
+                        </div>
+                      </div>
+                    </article>
+                  </div>
                 </div>
               );
             })}
