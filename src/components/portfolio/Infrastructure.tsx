@@ -20,7 +20,7 @@ const status = [
 
 export function Infrastructure() {
   return (
-    <Section id="infrastructure">
+    <Section id="infrastructure" reveal="right">
       <SectionHeader
         eyebrow="Infrastructure & Systems"
         title={<>Enterprise-grade<br /><span className="text-gradient-neon">operations.</span></>}

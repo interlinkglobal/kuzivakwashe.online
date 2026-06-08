@@ -41,7 +41,7 @@ const dot: Record<string, string> = {
 
 export function Ecosystem() {
   return (
-    <Section id="ecosystem">
+    <Section id="ecosystem" reveal="down">
       <SectionHeader
         eyebrow="Technology Ecosystem"
         title={<>The toolkit, <span className="text-gradient-neon">battle-tested.</span></>}

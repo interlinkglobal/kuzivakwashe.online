@@ -13,7 +13,7 @@ const spark = "M0,40 C20,30 35,55 55,32 C75,12 95,48 120,28 C145,10 170,38 195,2
 
 export function Analytics() {
   return (
-    <Section id="analytics">
+    <Section id="analytics" reveal="blur">
       <SectionHeader
         eyebrow="Analytics & Intelligence"
         title={<>Decisions powered by <span className="text-gradient-neon">data you can trust.</span></>}

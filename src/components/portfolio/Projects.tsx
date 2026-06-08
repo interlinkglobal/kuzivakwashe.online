@@ -42,7 +42,7 @@ const accentRing: Record<string, string> = {
 
 export function Projects() {
   return (
-    <Section id="projects">
+    <Section id="projects" reveal="zoom">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <SectionHeader
           eyebrow="Featured Projects"

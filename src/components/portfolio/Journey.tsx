@@ -13,7 +13,7 @@ const certs = ["AWS Solutions Architect", "CKA, Certified Kubernetes Admin", "Co
 
 export function Journey() {
   return (
-    <Section id="journey">
+    <Section id="journey" reveal="left">
       <SectionHeader
         eyebrow="Experience & Journey"
         title={<>A continuous build. <span className="text-gradient-neon">Always shipping.</span></>}

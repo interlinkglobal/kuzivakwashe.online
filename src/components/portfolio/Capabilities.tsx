@@ -42,7 +42,7 @@ const pillars = [
 
 export function Capabilities() {
   return (
-    <Section id="capabilities">
+    <Section id="capabilities" reveal="left">
       <SectionHeader
         eyebrow="Core Capabilities"
         title={<>How I move from <span className="text-gradient-neon">problem to platform.</span></>}

@@ -3,7 +3,7 @@ import { Mail, Github, Linkedin, Send } from "lucide-react";
 
 export function Contact() {
   return (
-    <Section id="contact" className="pb-24">
+    <Section id="contact" className="pb-24" reveal="fade">
       <div className="relative overflow-hidden rounded-[2.5rem] glass-strong p-8 sm:p-12 lg:p-16 shadow-neon">
         <div className="pointer-events-none absolute -top-32 -right-20 h-[420px] w-[420px] rounded-full bg-[oklch(0.66_0.27_305/0.3)] blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-[420px] w-[420px] rounded-full bg-[oklch(0.78_0.18_220/0.25)] blur-3xl" />
