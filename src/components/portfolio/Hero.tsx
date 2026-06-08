@@ -12,7 +12,7 @@ export function Hero() {
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs font-mono">
             <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-[oklch(0.75_0.2_150)]" />
-            <span className="text-muted-foreground">"An End User Computer Pro"</span>
+            <span className="text-muted-foreground">An End User Computing Pro</span>
           </div>
           <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
             Engineering the
@@ -21,8 +21,8 @@ export function Hero() {
             <br />
             stack.
           </h1>
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            I'm <span className="text-foreground font-medium">K.C.T.</span>, an IT specialist who designs, deploys, and operates
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground sm:text-lg">
+            I'm <span className="font-medium">K.C.T.</span>, an IT specialist who designs, deploys, and operates
             resilient systems across networks, cloud, security, automation, and intelligent software.
             End-to-end thinking. Enterprise-grade execution.
           </p>
