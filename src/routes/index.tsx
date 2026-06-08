@@ -10,6 +10,7 @@ import { Ecosystem } from "@/components/portfolio/Ecosystem";
 import { Journey } from "@/components/portfolio/Journey";
 import { Philosophy } from "@/components/portfolio/Philosophy";
 import { Contact } from "@/components/portfolio/Contact";
+import { FloatingContact } from "@/components/portfolio/FloatingContact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,6 +41,7 @@ function Index() {
         <Philosophy />
         <Contact />
       </main>
+      <FloatingContact />
     </div>
   );
 }
