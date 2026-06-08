@@ -25,7 +25,7 @@ const glowClass: Record<string, string> = {
 
 export function Expertise() {
   return (
-    <Section id="expertise">
+    <Section id="expertise" reveal="up">
       <SectionHeader
         eyebrow="Technology Overview"
         title={<>A broad stack.<br /><span className="text-gradient-neon">Engineered depth.</span></>}

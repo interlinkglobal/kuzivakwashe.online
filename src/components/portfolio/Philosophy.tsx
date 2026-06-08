@@ -11,7 +11,7 @@ const principles = [
 
 export function Philosophy() {
   return (
-    <Section id="philosophy">
+    <Section id="philosophy" reveal="rotate">
       <SectionHeader
         eyebrow="Philosophy"
         title={<>How I think about <span className="text-gradient-neon">technology.</span></>}
