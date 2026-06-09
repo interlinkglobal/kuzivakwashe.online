@@ -2,33 +2,33 @@ import { Section, SectionHeader } from "./Section";
 
 const groups = [
   {
-    name: "Cloud & Platforms",
-    items: ["AWS", "Azure", "GCP", "Cloudflare", "DigitalOcean", "Vercel"],
+    name: "Operating Systems & Software Programs",
+    items: ["Windows", "macOS", "Linux", "Microsoft 365", "Adobe Suite", "Notion"],
     glow: "cyan",
   },
   {
-    name: "Infrastructure & Containers",
-    items: ["Kubernetes", "Docker", "Proxmox", "VMware", "Nomad", "Helm"],
+    name: "Programming Languages & Frameworks",
+    items: ["JavaScript", "TypeScript", "Python", "React", "Next.js", "Node.js"],
     glow: "violet",
   },
   {
-    name: "Automation & IaC",
-    items: ["Terraform", "Ansible", "Pulumi", "GitHub Actions", "ArgoCD", "Packer"],
+    name: "Design Platforms & Libraries",
+    items: ["Figma", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Lucide", "Canva"],
     glow: "magenta",
   },
   {
-    name: "Networking & Security",
-    items: ["Cisco", "Fortinet", "pfSense", "WireGuard", "Vault", "Wazuh"],
+    name: "Databases & APIs",
+    items: ["Supabase", "PostgreSQL", "Firebase", "REST", "GraphQL", "Stripe API"],
     glow: "cyan",
   },
   {
-    name: "Data & Observability",
-    items: ["PostgreSQL", "Redis", "ClickHouse", "Grafana", "Prometheus", "OpenTelemetry"],
+    name: "Networks & Security",
+    items: ["Cloudflare", "DNS", "TLS/SSL", "VPN", "OAuth", "Zero Trust"],
     glow: "violet",
   },
   {
-    name: "Languages & AI",
-    items: ["Python", "TypeScript", "Go", "Bash", "PyTorch", "LangChain"],
+    name: "Automations & AI",
+    items: ["OpenAI", "Gemini", "LangChain", "n8n", "Zapier", "Lovable AI"],
     glow: "magenta",
   },
 ];

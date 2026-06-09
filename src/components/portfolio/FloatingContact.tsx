@@ -56,9 +56,8 @@ export function FloatingContact() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close contact menu" : "Open contact menu"}
         aria-expanded={open}
-        className="relative grid h-14 w-14 place-items-center rounded-full glass-strong backdrop-blur-2xl shadow-neon transition-transform duration-300 hover:scale-110"
+        className="relative grid h-14 w-14 place-items-center rounded-full glass-strong backdrop-blur-2xl transition-transform duration-300 hover:scale-110"
       >
-        <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-neon opacity-30 blur-xl animate-pulse-glow" />
         <span className="relative grid h-full w-full place-items-center rounded-full">
           {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
         </span>

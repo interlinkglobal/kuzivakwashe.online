@@ -3,10 +3,10 @@ import infra from "@/assets/network-dashboard.png";
 import { Activity, Cpu, HardDrive, Wifi } from "lucide-react";
 
 const metrics = [
-  { icon: Activity, label: "Network Uptime", value: "99.99%", color: "text-[oklch(0.78_0.18_220)]" },
-  { icon: HardDrive, label: "Data Replicated", value: "2.45 PB", color: "text-[oklch(0.66_0.27_305)]" },
-  { icon: Wifi, label: "Edge Nodes", value: "128", color: "text-[oklch(0.70_0.32_340)]" },
-  { icon: Cpu, label: "Workloads", value: "3,892", color: "text-[oklch(0.75_0.20_195)]" },
+  { icon: Activity, label: "Systems Uptime", value: "90%", color: "text-[oklch(0.78_0.18_220)]" },
+  { icon: HardDrive, label: "Costs Reduced", value: "50%", color: "text-[oklch(0.66_0.27_305)]" },
+  { icon: Wifi, label: "Errors Resolved", value: "80%", color: "text-[oklch(0.70_0.32_340)]" },
+  { icon: Cpu, label: "Updates Successful", value: "75%", color: "text-[oklch(0.75_0.20_195)]" },
 ];
 
 const status = [
@@ -23,8 +23,8 @@ export function Infrastructure() {
     <Section id="infrastructure" reveal="right">
       <SectionHeader
         eyebrow="Infrastructure & Systems"
-        title={<>Enterprise-grade<br /><span className="text-gradient-neon">operations.</span></>}
-        description="From the rack to the region. I think in failure domains, blast radius, and SLOs, and design the boring reliability that lets the interesting work happen."
+        title={<>Fast, Secure and<br /><span className="text-gradient-neon">Affordable operations.</span></>}
+        description="Technological mumbo jumbo in plain English."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">

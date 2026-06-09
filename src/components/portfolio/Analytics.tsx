@@ -16,8 +16,8 @@ export function Analytics() {
     <Section id="analytics" reveal="blur">
       <SectionHeader
         eyebrow="Analytics & Intelligence"
-        title={<>Decisions powered by <span className="text-gradient-neon">data you can trust.</span></>}
-        description="Telemetry, dashboards, and AI-driven insights, turning the firehose of operational data into clear, actionable signal."
+        title={<>Admin dashboards that <span className="text-gradient-neon">abstract the technicalities.</span></>}
+        description="I convert computer language into human language. Scripts, schemas, logs and everything in between. Nothing is too complex to be said in plain English."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-12">

@@ -1,4 +1,7 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+import profilePic from "@/assets/kct-profile.jpg";
 
 const links = [
   { href: "#expertise", label: "Expertise" },
@@ -10,17 +13,30 @@ const links = [
 ];
 
 export function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
+    <>
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto mt-4 max-w-6xl px-4">
         <nav className="glass-strong flex items-center justify-between rounded-2xl px-5 py-3">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="relative grid h-8 w-8 place-items-center rounded-lg bg-gradient-neon shadow-glow-violet">
-              <span className="font-display text-sm font-bold text-background">K</span>
-            </span>
-            <span className="font-display text-base font-semibold tracking-tight">K.C.T.</span>
-            <span className="ml-1 hidden text-xs font-mono text-muted-foreground sm:inline">// IT Specialist</span>
-          </Link>
+          <div className="flex items-center gap-2.5">
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              aria-label="Open profile photo"
+              className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
+            >
+              <img src={profilePic} alt="Kuzi profile" className="h-full w-full object-cover" />
+            </button>
+            <Link to="/" className="font-display text-base font-semibold tracking-tight">K.C.T.</Link>
+          </div>
           <ul className="hidden items-center gap-7 lg:flex">
             {links.map((l) => (
               <li key={l.href}>
@@ -32,12 +48,39 @@ export function Nav() {
           </ul>
           <a
             href="#contact"
-            className="rounded-xl bg-gradient-neon px-4 py-2 text-sm font-medium text-background shadow-glow-violet transition hover:opacity-90"
+            className="rounded-xl bg-white px-4 py-2 text-sm font-medium text-background transition hover:bg-white/90"
           >
             Let's Connect →
           </a>
         </nav>
       </div>
     </header>
+
+    {open && (
+      <div
+        className="fixed inset-0 z-[100] grid place-items-center bg-background/80 backdrop-blur-xl animate-in fade-in"
+        onClick={() => setOpen(false)}
+      >
+        <button
+          type="button"
+          aria-label="Close profile"
+          onClick={() => setOpen(false)}
+          className="absolute right-6 top-6 grid h-11 w-11 place-items-center rounded-full glass-strong text-foreground transition hover:scale-110"
+        >
+          <X className="h-5 w-5" />
+        </button>
+        <div
+          className="relative max-w-[90vw] animate-in zoom-in-75 duration-300"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <img
+            src={profilePic}
+            alt="Kuzi profile"
+            className="max-h-[80vh] w-auto rounded-3xl object-contain shadow-neon"
+          />
+        </div>
+      </div>
+    )}
+    </>
   );
 }

@@ -15,16 +15,16 @@ export function Hero() {
             <span className="text-muted-foreground">An End User Computing Pro</span>
           </div>
           <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-            Engineering the
+            Digitalizing the
             <br />
-            <span className="text-gradient-neon">complete technology</span>
+            <span className="text-gradient-neon">legacy work</span>
             <br />
             stack.
           </h1>
           <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground sm:text-lg">
-            I'm <span className="font-medium">K.C.T.</span>, an IT specialist who designs, deploys, and operates
-            resilient systems across networks, cloud, security, automation, and intelligent software.
-            End-to-end thinking. Enterprise-grade execution.
+            I'm <span className="font-medium">Kuzi</span>. A C.R.U.D computer specialist who creates workflows,
+            reads code, updates versions and deletes errors. I have a broad understanding of information
+            technology (IT) ranging from Responsive Web Design to End User Computing.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a href="#projects" className="rounded-xl bg-gradient-neon px-6 py-3.5 text-sm font-semibold text-background shadow-neon transition hover:translate-y-[-2px]">
@@ -50,7 +50,6 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-8 rounded-[3rem] bg-gradient-neon opacity-25 blur-3xl" />
           <div className="glass-strong relative overflow-hidden rounded-3xl p-1 shadow-neon">
             <img
               src={heroImg}
@@ -59,15 +58,6 @@ export function Hero() {
               height={1152}
               className="aspect-[4/3] w-full rounded-[1.4rem] object-cover"
             />
-          </div>
-          {/* floating metric chips */}
-          <div className="glass animate-float absolute -left-4 top-12 hidden rounded-2xl px-4 py-3 shadow-glow-cyan sm:block">
-            <div className="text-[10px] font-mono uppercase text-muted-foreground">Uptime</div>
-            <div className="font-display text-xl font-semibold text-[oklch(0.78_0.18_220)]">99.99%</div>
-          </div>
-          <div className="glass animate-float absolute -right-4 bottom-10 hidden rounded-2xl px-4 py-3 shadow-glow-magenta sm:block" style={{ animationDelay: "1.4s" }}>
-            <div className="text-[10px] font-mono uppercase text-muted-foreground">Threats Blocked</div>
-            <div className="font-display text-xl font-semibold text-[oklch(0.70_0.32_340)]">1,247</div>
           </div>
         </div>
       </div>
