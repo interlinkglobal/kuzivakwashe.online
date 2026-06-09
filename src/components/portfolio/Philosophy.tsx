@@ -1,12 +1,12 @@
 import { Section, SectionHeader } from "./Section";
 
 const principles = [
-  { n: "01", t: "Understand the system before changing it.", d: "Read the topology, the data flow, the failure modes. Code comes after comprehension." },
-  { n: "02", t: "Reliability is a feature.", d: "Boring infrastructure is the platform on which interesting products are built." },
-  { n: "03", t: "Automate the second time.", d: "If a task is done twice, it should be codified by the third." },
-  { n: "04", t: "Security is a posture, not a project.", d: "Layered defaults, least privilege, observability, every day." },
-  { n: "05", t: "Optimize for clarity.", d: "Simple architectures, named primitives, and runbooks people actually read." },
-  { n: "06", t: "Stay a beginner.", d: "Curiosity outperforms confidence over a long career." },
+  { n: "01", t: "Everything Can Be Modeled.", d: "Applications can be converted into information and information can be converted into applications." },
+  { n: "02", t: "Systems Need Modules.", d: "Create the boxes first before thinking outside of them." },
+  { n: "03", t: "Applications Are Features.", d: "Approach features as their own apps, applied to a bigger system." },
+  { n: "04", t: "Errors Are Signals.", d: "System breakdowns are computer languages screaming about misconfigurations." },
+  { n: "05", t: "Security Starts Psychologically.", d: "Build redundant systems that frustrate malicious intentions." },
+  { n: "06", t: "Done Means Production Ready.", d: "Projects are never truly completed, there will always be room for improvement, so functionality over perfectionism." },
 ];
 
 export function Philosophy() {

@@ -1,15 +1,15 @@
 import { Section, SectionHeader } from "./Section";
 
 const timeline = [
-  { year: "Now", title: "IT Specialist · Multi-Domain Engineer", body: "Leading cross-functional initiatives across cloud, security, and intelligent automation." },
-  { year: "2024", title: "Cloud & DevOps Lead", body: "Migrated production workloads to a multi-region Kubernetes platform with IaC and GitOps." },
-  { year: "2023", title: "Infrastructure Architect", body: "Designed hybrid network and compute fabric for a 99.99% SLA observability stack." },
-  { year: "2022", title: "Cybersecurity & Systems Engineer", body: "Rolled out zero-trust access, hardening baselines, and a SIEM/SOAR detection program." },
-  { year: "2021", title: "Software & Automation Engineer", body: "Built internal platforms and pipelines that turned weeks of manual work into minutes." },
-  { year: "Earlier", title: "Networking & Systems Foundations", body: "Hands-on with routing, switching, virtualization, and Linux at scale." },
+  { year: "2026+", title: "Taxinger and Linkle", body: "Currently building a real time geolocation marketplace for taxis and passengers, alongside a unified Gmail, Gemini and Search workspace." },
+  { year: "Late 2025", title: "Grey Analytics and Selah", body: "Shipped a multi agent financial auditing platform and an immersive Bible experience with offline support and verse explanations." },
+  { year: "Mid 2025", title: "CashHub and Cosmic Memory", body: "Launched a learn to earn social platform and a hundred level card memory game with online and AI opponents." },
+  { year: "Early 2025", title: "Web Developer at I.G.T.", body: "Joined I.G.T. as a web developer, building production interfaces and shipping Kuzi, an autonomous marketing agent for outreach." },
+  { year: "Late 2024", title: "Likeable and Doclab", body: "Built a vibe coding tool on top of Lovable and a generative document studio that drafts contracts and reports from a single prompt." },
+  { year: "Early 2024", title: "Freelancer, First Aid", body: "Started freelancing and shipped First Aid, an AI powered triage and care tracker connecting patients with clinicians." },
 ];
 
-const certs = ["AWS Solutions Architect", "CKA, Certified Kubernetes Admin", "CompTIA Security+", "CCNA", "Terraform Associate", "Azure Administrator"];
+const certs = ["First Aid", "Doclab", "Likeable", "Kuzi", "CashHub", "Cosmic Memory", "Linkle", "Selah", "Grey Analytics", "Taxinger"];
 
 export function Journey() {
   return (
@@ -37,7 +37,7 @@ export function Journey() {
 
         <aside className="space-y-6">
           <div className="glass-strong rounded-2xl p-6">
-            <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Certifications</div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Projects</div>
             <ul className="mt-4 space-y-3 text-sm">
               {certs.map((c) => (
                 <li key={c} className="flex items-center gap-3 border-b border-border/60 pb-3 last:border-0">
@@ -50,9 +50,16 @@ export function Journey() {
           <div className="glass rounded-2xl p-6">
             <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Continuous Learning</div>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              I treat learning like a production system: planned, measurable, always running.
-              Every quarter, one new depth and one new breadth.
+              Some of these projects are still in progress and ship continuously on my GitHub.
             </p>
+            <a
+              href="https://github.com/kuzi-kct"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 font-mono text-xs text-[oklch(0.78_0.18_220)] hover:text-foreground"
+            >
+              github.com/kuzi-kct →
+            </a>
           </div>
         </aside>
       </div>

@@ -1,20 +1,20 @@
 import { Section, SectionHeader } from "./Section";
 import {
-  Network, Cloud, Server, Shield, Database, Workflow,
-  Code2, BarChart3, BrainCircuit, Cog,
+  Terminal, Code2, FileCode2, Palette, Braces, Snowflake,
+  Database, Triangle, Cloud, Sparkles,
 } from "lucide-react";
 
 const domains = [
-  { icon: Network, name: "Networking", desc: "Routing, switching, VLANs, VPNs, SD-WAN, and end-to-end connectivity design.", glow: "cyan" },
-  { icon: Cloud, name: "Cloud Platforms", desc: "AWS, Azure, GCP, architecting scalable, resilient cloud-native environments.", glow: "violet" },
-  { icon: Server, name: "Infrastructure", desc: "Hypervisors, containers, storage, and bare-metal, built for uptime.", glow: "magenta" },
-  { icon: Cog, name: "Systems Administration", desc: "Linux & Windows server fleets, hardening, monitoring, and patch lifecycles.", glow: "cyan" },
-  { icon: Shield, name: "Cybersecurity", desc: "Defense-in-depth, IAM, zero-trust, threat detection and incident response.", glow: "magenta" },
-  { icon: Database, name: "Databases", desc: "Relational and NoSQL, modeling, tuning, replication, and disaster recovery.", glow: "violet" },
-  { icon: Workflow, name: "Automation", desc: "IaC with Terraform & Ansible, CI/CD pipelines, scripting that scales.", glow: "cyan" },
-  { icon: Code2, name: "Software Development", desc: "Full-stack engineering, APIs, microservices, and developer tooling.", glow: "violet" },
-  { icon: BarChart3, name: "Data & Analytics", desc: "Pipelines, warehouses, dashboards, and decision-grade insights.", glow: "magenta" },
-  { icon: BrainCircuit, name: "Artificial Intelligence", desc: "LLM integration, RAG systems, ML workflows and intelligent automation.", glow: "violet" },
+  { icon: Terminal, name: "Windows CMD", desc: "Managing the operating system, file directories, services and network diagnostics from the command line.", glow: "cyan" },
+  { icon: Code2, name: "Visual Studio Code", desc: "Daily-driver editor for writing, debugging and shipping across every stack with extensions, Git and terminals built in.", glow: "violet" },
+  { icon: FileCode2, name: "HTML", desc: "Semantic, accessible markup that gives every interface a clear structure and a meaningful document outline.", glow: "magenta" },
+  { icon: Palette, name: "CSS", desc: "Responsive layouts, design tokens, transitions and animations that bring interfaces to life across devices.", glow: "cyan" },
+  { icon: Braces, name: "JavaScript", desc: "Interactive behavior, DOM control and modern ES syntax powering both browser and Node runtimes.", glow: "magenta" },
+  { icon: Snowflake, name: "Python", desc: "Scripting, automation, data work and AI tooling, from quick utilities to full agentic backends.", glow: "violet" },
+  { icon: Database, name: "Supabase", desc: "Postgres database, authentication, storage and edge functions wired up with row level security out of the box.", glow: "cyan" },
+  { icon: Triangle, name: "Vercel", desc: "Frictionless deployment, preview environments and edge delivery for modern React and Next.js applications.", glow: "violet" },
+  { icon: Cloud, name: "Cloudflare", desc: "DNS, CDN, Workers and zero trust security keeping sites fast, available and protected at the edge.", glow: "magenta" },
+  { icon: Sparkles, name: "Lovable", desc: "AI-native build platform for shipping full stack products in hours, from prompt to production.", glow: "violet" },
 ];
 
 const glowClass: Record<string, string> = {
@@ -29,7 +29,7 @@ export function Expertise() {
       <SectionHeader
         eyebrow="Technology Overview"
         title={<>A broad stack.<br /><span className="text-gradient-neon">Engineered depth.</span></>}
-        description="Across ten core domains, I build systems that talk to each other, from the wire and the rack to the cloud, the dashboard, and the model."
+        description="Across ten core domains, I build systems that communicate clearly, abstracting the technical jargon from non-technical colleagues."
       />
 
       <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

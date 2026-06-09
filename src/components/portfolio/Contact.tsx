@@ -15,11 +15,11 @@ export function Contact() {
               Contact
             </div>
             <h2 className="font-display text-4xl font-bold leading-tight sm:text-5xl">
-              Have a system to <span className="text-gradient-neon">build, fix or scale?</span>
+              What can I <span className="text-gradient-neon">do you for?</span>
             </h2>
             <p className="mt-5 max-w-md text-muted-foreground">
-              Whether it's an infrastructure overhaul, a cloud migration, a security review, or an AI integration ,
-              I'd love to hear what you're working on.
+              I'm available for personal and professional projects. Beta testing, website and app development.
+              Contact me for a project review.
             </p>
 
             <ul className="mt-8 space-y-3">

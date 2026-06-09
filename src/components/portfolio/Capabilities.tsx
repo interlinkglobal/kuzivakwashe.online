@@ -3,39 +3,39 @@ import { CheckCircle2 } from "lucide-react";
 
 const pillars = [
   {
-    label: "Architect",
-    title: "Design systems that hold under pressure.",
+    label: "Spec",
+    title: "Start with a markdown spec.",
     points: [
-      "Reference architectures for cloud, hybrid and on-prem",
-      "Capacity planning and cost-aware sizing",
-      "Failure-domain analysis and DR strategy",
+      "Outline the what, why, when and how of the objective",
+      "Align stakeholders on scope before any code is written",
+      "Single source of truth that the build runs against",
     ],
   },
   {
-    label: "Operate",
-    title: "Run platforms that don't wake people up.",
+    label: "MVP",
+    title: "Animated minimum viable product.",
     points: [
-      "Observability with logs, metrics and traces",
-      "Incident response, RCA and blameless reviews",
-      "Patch, backup and lifecycle automation",
-    ],
-  },
-  {
-    label: "Secure",
-    title: "Defense built into every layer.",
-    points: [
-      "Identity, access and secrets management",
-      "Hardening baselines, vulnerability management",
-      "Network segmentation and zero-trust controls",
+      "Show a visual of the final product immediately",
+      "Motion communicates intent faster than documents",
+      "Validate the experience before committing to logic",
     ],
   },
   {
     label: "Build",
-    title: "Code, pipelines and intelligent tooling.",
+    title: "Modular build along the animations.",
     points: [
-      "APIs, microservices and event-driven systems",
-      "CI/CD, infrastructure as code, GitOps",
-      "AI-assisted workflows and data products",
+      "Implement step by step following the MVP progressions",
+      "Each module owns a clear responsibility and contract",
+      "Composable pieces that plug into a larger system",
+    ],
+  },
+  {
+    label: "Test",
+    title: "Beta test with humans and AI.",
+    points: [
+      "Simulated and real world operations against the spec",
+      "Feedback loops from end users and AI evaluators",
+      "Ship only after the experience holds up under pressure",
     ],
   },
 ];
@@ -44,9 +44,9 @@ export function Capabilities() {
   return (
     <Section id="capabilities" reveal="left">
       <SectionHeader
-        eyebrow="Core Capabilities"
-        title={<>How I move from <span className="text-gradient-neon">problem to platform.</span></>}
-        description="Four disciplines, applied together, so the systems I deliver are not only built, but operable, defensible, and useful."
+        eyebrow="How I Work"
+        title={<>How I build <span className="text-gradient-neon">systems from scratch.</span></>}
+        description="Four iterable steps applied to every workflow: a markdown spec outlines the what, why, when and how. The plan is followed by an animated MVP that shows the final product. Modular building follows the animation, then beta testing closes the loop with simulated and real world feedback from humans and AI."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-2">
