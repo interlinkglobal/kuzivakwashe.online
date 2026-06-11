@@ -161,32 +161,32 @@ export function Projects() {
                     </div>
 
                     <article
-                      className="relative flex w-full flex-col overflow-hidden rounded-3xl glass p-8 backdrop-blur-3xl lg:p-10"
+                      className="relative flex w-full flex-col overflow-hidden rounded-3xl glass p-8 text-white backdrop-blur-3xl lg:p-10"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
                           <div className="font-mono text-[10px] uppercase tracking-widest text-[oklch(0.78_0.18_220)]">
                             {p.tag}
                           </div>
-                          <h3 className="mt-1.5 font-display text-2xl font-semibold leading-tight sm:text-3xl">{p.name}</h3>
+                          <h3 className="mt-1.5 font-display text-2xl font-semibold leading-tight text-white sm:text-3xl">{p.name}</h3>
                         </div>
-                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full glass text-foreground">
+                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full glass text-white">
                           <ArrowUpRight className="h-4 w-4" />
                         </span>
                       </div>
-                      <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                      <p className="mt-5 text-sm leading-relaxed text-white/85">{p.desc}</p>
                       <div className="mt-6">
                         <div className="flex flex-wrap gap-1.5">
                           {p.stack.map((s) => (
                             <span
                               key={s}
-                              className="rounded-md border border-border/60 bg-[oklch(0.2_0.08_278/0.5)] px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                              className="rounded-md border border-white/20 bg-white/10 px-2 py-0.5 font-mono text-[10px] text-white/90"
                             >
                               {s}
                             </span>
                           ))}
                         </div>
-                        <div className="mt-5 border-t border-border/60 pt-4 font-mono text-xs leading-snug text-foreground/80">
+                        <div className="mt-5 border-t border-white/15 pt-4 font-mono text-xs leading-snug text-white/85">
                           {p.outcome}
                         </div>
                       </div>
