@@ -23,12 +23,12 @@ export function Analytics() {
       <div className="mt-16 grid gap-6 lg:grid-cols-12">
         {/* main chart */}
         <div className="glass-strong rounded-3xl p-6 lg:col-span-8">
-          <div className="flex items-start justify-between">
-            <div>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="min-w-0">
               <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Performance Over Time</div>
               <div className="mt-1 font-display text-2xl font-semibold">Platform Throughput</div>
             </div>
-            <div className="flex gap-1 rounded-xl glass p-1 text-xs font-mono">
+            <div className="flex flex-wrap gap-1 rounded-xl glass p-1 text-xs font-mono">
               {["1D", "7D", "30D", "90D"].map((t) => (
                 <span key={t} className={`rounded-lg px-3 py-1.5 ${t === "30D" ? "bg-gradient-neon text-background" : "text-muted-foreground"}`}>{t}</span>
               ))}
@@ -54,14 +54,14 @@ export function Analytics() {
               <path d={spark} fill="none" stroke="url(#g2)" strokeWidth="1.2" strokeLinecap="round" />
             </svg>
           </div>
-          <div className="mt-4 grid grid-cols-4 gap-4 border-t border-border/60 pt-5">
+          <div className="mt-4 grid grid-cols-2 gap-4 border-t border-border/60 pt-5 sm:grid-cols-4">
             {[
               { l: "Users", v: "128.4K", d: "+12.4%" },
               { l: "Sessions", v: "342.6K", d: "+8.1%" },
               { l: "Latency", v: "23 ms", d: "-4.3%" },
               { l: "Errors", v: "0.02%", d: "-2.1%" },
             ].map((m) => (
-              <div key={m.l}>
+              <div key={m.l} className="min-w-0">
                 <div className="text-xs text-muted-foreground">{m.l}</div>
                 <div className="mt-1 font-display text-xl font-semibold">{m.v}</div>
                 <div className="font-mono text-[10px] text-[oklch(0.75_0.2_150)]">{m.d}</div>
@@ -120,8 +120,8 @@ export function Analytics() {
         {/* connection health */}
         <div className="glass-strong relative overflow-hidden rounded-3xl p-6 lg:col-span-7">
           <div className="font-display text-lg font-semibold">Connection Health</div>
-          <div className="mt-4 grid grid-cols-2 items-center gap-6">
-            <div className="relative grid place-items-center">
+          <div className="mt-4 grid grid-cols-1 items-center gap-6 sm:grid-cols-2">
+            <div className="relative mx-auto grid place-items-center">
               <svg viewBox="0 0 120 120" className="h-40 w-40">
                 <circle cx="60" cy="60" r="50" fill="none" stroke="oklch(0.2 0.08 278)" strokeWidth="10" />
                 <circle cx="60" cy="60" r="50" fill="none" stroke="url(#ring)" strokeWidth="10" strokeLinecap="round"
