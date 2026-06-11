@@ -142,7 +142,7 @@ export function Projects() {
               return (
                 <div
                   key={p.name}
-                  className="relative min-w-0 shrink-0 grow-0 basis-[90%] px-3 sm:basis-[70%] md:basis-[55%] lg:basis-[48%]"
+                  className="relative min-w-0 shrink-0 grow-0 basis-[92%] px-1.5 sm:basis-[78%] md:basis-[62%] lg:basis-[52%]"
                 >
                   <div
                     className={`relative w-full transition-all duration-500 ease-out ${
@@ -150,7 +150,7 @@ export function Projects() {
                     }`}
                   >
                     {/* floating glowing orbs behind the glass */}
-                    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+                    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-tl-3xl rounded-br-3xl">
                       <div
                         className={`absolute -top-10 -left-8 h-40 w-40 rounded-full bg-gradient-to-br ${accentGradient[p.accent]} opacity-60 blur-3xl animate-float`}
                       />
@@ -161,7 +161,7 @@ export function Projects() {
                     </div>
 
                     <article
-                      className="relative flex w-full flex-col overflow-hidden rounded-3xl glass p-8 text-white backdrop-blur-3xl lg:p-10"
+                      className="relative flex w-full flex-col overflow-hidden rounded-tl-3xl rounded-br-3xl glass p-8 text-white backdrop-blur-3xl lg:p-10"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
