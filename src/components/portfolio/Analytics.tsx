@@ -1,11 +1,11 @@
 import { Section, SectionHeader } from "./Section";
 
 const traffic = [
-  { name: "Organic", val: 48 },
-  { name: "Direct", val: 25 },
-  { name: "Referral", val: 15 },
-  { name: "Social", val: 7 },
-  { name: "Other", val: 5 },
+  { name: "Web Development", val: 48 },
+  { name: "App Development", val: 25 },
+  { name: "AI & Automation", val: 15 },
+  { name: "Graphic Design", val: 7 },
+  { name: "Consulting", val: 5 },
 ];
 
 // pre-generated smooth sparkline points
@@ -16,8 +16,8 @@ export function Analytics() {
     <Section id="analytics" reveal="blur">
       <SectionHeader
         eyebrow="Analytics & Intelligence"
-        title={<>Admin dashboards that <span className="text-gradient-neon">abstract the technicalities.</span></>}
-        description="I convert computer language into human language. Scripts, schemas, logs and everything in between. Nothing is too complex to be said in plain English."
+        title={<>Insight that <span className="text-gradient-neon">turns work into growth.</span></>}
+        description="I track what matters: where clients come from, what ships fastest, and what keeps users coming back. Every project is measured, refined and made better."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-12">
@@ -25,8 +25,8 @@ export function Analytics() {
         <div className="glass-strong rounded-3xl p-6 lg:col-span-8">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Performance Over Time</div>
-              <div className="mt-1 font-display text-2xl font-semibold">Platform Throughput</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Client Projects Delivered</div>
+              <div className="mt-1 font-display text-2xl font-semibold">Delivery Velocity</div>
             </div>
             <div className="flex flex-wrap gap-1 rounded-xl glass p-1 text-xs font-mono">
               {["1D", "7D", "30D", "90D"].map((t) => (
@@ -56,10 +56,10 @@ export function Analytics() {
           </div>
           <div className="mt-4 grid grid-cols-2 gap-4 border-t border-border/60 pt-5 sm:grid-cols-4">
             {[
-              { l: "Users", v: "128.4K", d: "+12.4%" },
-              { l: "Sessions", v: "342.6K", d: "+8.1%" },
-              { l: "Latency", v: "23 ms", d: "-4.3%" },
-              { l: "Errors", v: "0.02%", d: "-2.1%" },
+              { l: "Clients", v: "40+", d: "+12% YoY" },
+              { l: "Builds", v: "50+", d: "+8% YoY" },
+              { l: "Avg Sprint", v: "6 days", d: "-15%" },
+              { l: "Revisions", v: "1.2", d: "-22%" },
             ].map((m) => (
               <div key={m.l} className="min-w-0">
                 <div className="text-xs text-muted-foreground">{m.l}</div>
@@ -85,20 +85,20 @@ export function Analytics() {
           </div>
           <ul className="mt-6 space-y-4 text-sm">
             <li className="rounded-xl border-l-2 border-[oklch(0.78_0.18_220)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
-              Peak traffic clusters around <span className="font-medium text-foreground">Tue 10–11 AM</span>. Auto-scale schedule updated.
+              Demand for <span className="font-medium text-foreground">AI-powered websites</span> is the fastest growing service this quarter.
             </li>
             <li className="rounded-xl border-l-2 border-[oklch(0.66_0.27_305)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
-              Database p95 climbing, <span className="font-medium text-foreground">index hint</span> proposed for <code className="font-mono text-xs">orders.user_id</code>.
+              Clients who pair <span className="font-medium text-foreground">design with development</span> launch 2x faster on average.
             </li>
             <li className="rounded-xl border-l-2 border-[oklch(0.70_0.32_340)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
-              Anomaly detected on <span className="font-medium text-foreground">edge-eu-3</span>. Mitigation runbook drafted.
+              Most enquiries arrive on <span className="font-medium text-foreground">weekday evenings</span> — reply turnaround under 4 hours.
             </li>
           </ul>
         </div>
 
         {/* traffic sources */}
         <div className="glass-strong rounded-3xl p-6 lg:col-span-5">
-          <div className="font-display text-lg font-semibold">Traffic Sources</div>
+          <div className="font-display text-lg font-semibold">Service Mix</div>
           <div className="mt-6 space-y-3">
             {traffic.map((t, i) => (
               <div key={t.name}>
@@ -119,7 +119,7 @@ export function Analytics() {
 
         {/* connection health */}
         <div className="glass-strong relative overflow-hidden rounded-3xl p-6 lg:col-span-7">
-          <div className="font-display text-lg font-semibold">Connection Health</div>
+          <div className="font-display text-lg font-semibold">Client Health</div>
           <div className="mt-4 grid grid-cols-1 items-center gap-6 sm:grid-cols-2">
             <div className="relative mx-auto grid place-items-center">
               <svg viewBox="0 0 120 120" className="h-40 w-40">
@@ -135,15 +135,15 @@ export function Analytics() {
               </svg>
               <div className="absolute text-center">
                 <div className="font-display text-3xl font-bold">98%</div>
-                <div className="font-mono text-[10px] uppercase text-[oklch(0.75_0.2_150)]">Excellent</div>
+                <div className="font-mono text-[10px] uppercase text-[oklch(0.75_0.2_150)]">Satisfaction</div>
               </div>
             </div>
             <ul className="space-y-3 text-sm">
               {[
-                ["Packet Loss", "0.01%"],
-                ["Jitter", "2 ms"],
-                ["DNS Health", "Excellent"],
-                ["Uptime", "99.99%"],
+                ["Retention", "92%"],
+                ["Avg Reply", "< 4h"],
+                ["Repeat Hires", "65%"],
+                ["Referrals", "Strong"],
               ].map(([k, v]) => (
                 <li key={k} className="flex justify-between border-b border-border/60 pb-2">
                   <span className="text-muted-foreground">{k}</span>

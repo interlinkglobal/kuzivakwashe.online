@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import profilePic from "@/assets/kct-profile.jpg";
+import profileAsset from "@/assets/kct-profile.jpg.asset.json";
+const profilePic = profileAsset.url;
 
 const links = [
   { href: "#expertise", label: "Expertise" },

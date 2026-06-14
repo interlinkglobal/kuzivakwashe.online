@@ -1,21 +1,21 @@
 import { Section, SectionHeader } from "./Section";
-import infra from "@/assets/network-dashboard.png";
+import globeAsset from "@/assets/globe.png.asset.json";
 import { Activity, Cpu, HardDrive, Wifi } from "lucide-react";
 
 const metrics = [
-  { icon: Activity, label: "Systems Uptime", value: "90%", color: "text-[oklch(0.78_0.18_220)]" },
-  { icon: HardDrive, label: "Costs Reduced", value: "50%", color: "text-[oklch(0.66_0.27_305)]" },
-  { icon: Wifi, label: "Errors Resolved", value: "80%", color: "text-[oklch(0.70_0.32_340)]" },
-  { icon: Cpu, label: "Updates Successful", value: "75%", color: "text-[oklch(0.75_0.20_195)]" },
+  { icon: Activity, label: "Client Satisfaction", value: "98%", color: "text-[oklch(0.78_0.18_220)]" },
+  { icon: HardDrive, label: "On-time Delivery", value: "95%", color: "text-[oklch(0.66_0.27_305)]" },
+  { icon: Wifi, label: "Projects Shipped", value: "50+", color: "text-[oklch(0.70_0.32_340)]" },
+  { icon: Cpu, label: "Tech Domains", value: "12+", color: "text-[oklch(0.75_0.20_195)]" },
 ];
 
 const status = [
-  { name: "Compute", state: "Operational" },
-  { name: "Storage", state: "Operational" },
-  { name: "Network", state: "Operational" },
-  { name: "Identity", state: "Operational" },
-  { name: "Observability", state: "Operational" },
-  { name: "Edge / CDN", state: "Operational" },
+  { name: "HTML / CSS", state: "96%" },
+  { name: "JavaScript / TypeScript", state: "92%" },
+  { name: "React / Next.js", state: "90%" },
+  { name: "Python", state: "88%" },
+  { name: "UI / UX Design", state: "85%" },
+  { name: "DevOps & Cloud", state: "80%" },
 ];
 
 export function Infrastructure() {
@@ -23,19 +23,21 @@ export function Infrastructure() {
     <Section id="infrastructure" reveal="right">
       <SectionHeader
         eyebrow="Infrastructure & Systems"
-        title={<>Fast, Secure and<br /><span className="text-gradient-neon">Affordable operations.</span></>}
-        description="Technological mumbo jumbo in plain English."
+        title={<>Built to scale<br /><span className="text-gradient-neon">from one user to many.</span></>}
+        description="From a single landing page to a multi-region platform, I architect systems that grow with your business without breaking under pressure."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-        <div className="relative overflow-hidden rounded-3xl glass-strong">
-          <img src={infra} alt="Server infrastructure visualization" loading="lazy" width={1024} height={1024}
-            className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.13_0.06_270)] via-[oklch(0.13_0.06_270/0.2)] to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 glass rounded-2xl p-5">
-            <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Live Topology</div>
-            <div className="mt-1 font-display text-xl">Multi-region, multi-cloud, single pane of glass.</div>
+        <div className="relative overflow-hidden rounded-3xl min-h-[420px] flex items-center justify-center">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] w-[80%] rounded-full bg-[oklch(0.55_0.27_305/0.25)] blur-3xl animate-pulse-glow" />
           </div>
+          <img
+            src={globeAsset.url}
+            alt="Global network of connected systems"
+            loading="lazy"
+            className="relative w-full max-w-[520px] animate-float drop-shadow-[0_0_60px_oklch(0.66_0.27_305/0.55)]"
+          />
         </div>
 
         <div className="space-y-6">
@@ -50,17 +52,14 @@ export function Infrastructure() {
           </div>
           <div className="glass rounded-2xl p-6">
             <div className="flex items-center justify-between">
-              <div className="font-display text-lg font-semibold">System Status</div>
-              <span className="font-mono text-[10px] uppercase text-[oklch(0.75_0.2_150)]">● ALL GREEN</span>
+              <div className="font-display text-lg font-semibold">Knowledge Bases</div>
+              <span className="font-mono text-[10px] uppercase text-[oklch(0.75_0.2_150)]">● ALWAYS LEARNING</span>
             </div>
             <ul className="mt-4 divide-y divide-border/60">
               {status.map((s) => (
                 <li key={s.name} className="flex items-center justify-between py-2.5 text-sm">
                   <span className="text-muted-foreground">{s.name}</span>
-                  <span className="inline-flex items-center gap-1.5 text-[oklch(0.75_0.2_150)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.75_0.2_150)] shadow-[0_0_8px_oklch(0.75_0.2_150)]" />
-                    {s.state}
-                  </span>
+                  <span className="font-mono text-[oklch(0.78_0.18_220)]">{s.state}</span>
                 </li>
               ))}
             </ul>
