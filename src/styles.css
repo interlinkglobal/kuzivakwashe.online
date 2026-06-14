@@ -188,3 +188,20 @@
   }
   .animate-orbit { animation: orbit 24s linear infinite; }
 }
+
+/* Hide Lovable badge (temporary workaround while awaiting settings fix) */
+#lovable-badge,
+a#lovable-badge,
+a[href*="lovable.dev/projects/0d171e46-a2ec-4c61-96e7-1a2d79e0c0b6"],
+#container #lovable-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 3D flip card utility for certificate flipper */
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }

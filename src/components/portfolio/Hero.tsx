@@ -1,6 +1,17 @@
-import heroImg from "@/assets/certificate.jpg";
+import { useEffect, useState } from "react";
+import { Info, X } from "lucide-react";
+import cert1 from "@/assets/cert-1.jpg.asset.json";
+import cert2 from "@/assets/cert-2.jpg.asset.json";
 
 export function Hero() {
+  const [flipped, setFlipped] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+
+  useEffect(() => {
+    const id = window.setInterval(() => setFlipped((v) => !v), 3500);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section className="relative overflow-hidden pt-36 pb-24 lg:pt-44 lg:pb-32">
       {/* ambient glows */}
@@ -22,9 +33,8 @@ export function Hero() {
             stack.
           </h1>
           <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground sm:text-lg">
-            I'm <span className="font-medium">Kuzi</span>. A C.R.U.D computer specialist who creates workflows,
-            reads code, updates versions and deletes errors. I have a broad understanding of information
-            technology (IT) ranging from Responsive Web Design to End User Computing.
+            I'm <span className="font-medium">Kuzi</span>. I turn everyday end user computing
+            headaches into clean, responsive web experiences that just work, on any device.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a href="#projects" className="rounded-xl bg-gradient-neon px-6 py-3.5 text-sm font-semibold text-background shadow-neon transition hover:translate-y-[-2px]">
@@ -50,17 +60,68 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="glass-strong relative overflow-hidden rounded-3xl p-1 shadow-neon">
-            <img
-              src={heroImg}
-              alt="Professional certificate awarded to K.C.T."
-              width={1536}
-              height={1152}
-              className="aspect-[4/3] w-full rounded-[1.4rem] object-cover"
-            />
+          <div className="perspective-1000">
+            <div
+              className={`relative aspect-[4/3] w-full preserve-3d transition-transform duration-[1200ms] ease-in-out ${
+                flipped ? "rotate-y-180" : ""
+              }`}
+            >
+              {[cert1, cert2].map((c, i) => (
+                <div
+                  key={i}
+                  className={`absolute inset-0 backface-hidden glass-strong overflow-hidden rounded-3xl p-1 shadow-neon ${
+                    i === 1 ? "rotate-y-180" : ""
+                  }`}
+                >
+                  <img
+                    src={c.url}
+                    alt={`K.C.T. certification ${i + 1}`}
+                    className="h-full w-full select-none rounded-[1.4rem] object-cover pointer-events-none"
+                    draggable={false}
+                  />
+                  {/* transparent shield: blocks right-click + drag, click opens info */}
+                  <button
+                    type="button"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onClick={() => setShowInfo(true)}
+                    aria-label="Certificate information"
+                    className="absolute inset-0 z-10 cursor-help rounded-[1.4rem]"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      {showInfo && (
+        <div
+          className="fixed inset-0 z-[100] grid place-items-center bg-background/80 backdrop-blur-xl animate-in fade-in p-4"
+          onClick={() => setShowInfo(false)}
+        >
+          <div
+            className="relative w-full max-w-sm aspect-square glass-strong rounded-3xl p-6 shadow-neon animate-in zoom-in-90 duration-300 flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowInfo(false)}
+              aria-label="Close"
+              className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full glass hover:scale-110 transition"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-neon shadow-glow-violet">
+              <Info className="h-6 w-6 text-background" />
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-foreground/90 flex-1">
+              These images are digital representations of physical certificates that I own
+              which are available upon request. My personal details are abstracted here for
+              security purposes.
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

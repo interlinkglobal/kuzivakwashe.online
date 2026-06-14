@@ -11,6 +11,7 @@ import { Journey } from "@/components/portfolio/Journey";
 import { Philosophy } from "@/components/portfolio/Philosophy";
 import { Contact } from "@/components/portfolio/Contact";
 import { FloatingContact } from "@/components/portfolio/FloatingContact";
+import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,6 +43,7 @@ function Index() {
         <Contact />
       </main>
       <FloatingContact />
+      <Toaster richColors position="top-right" />
     </div>
   );
 }

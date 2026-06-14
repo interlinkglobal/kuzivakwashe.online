@@ -3,6 +3,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Section, SectionHeader } from "./Section";
 
+const GITHUB_BASE = "https://github.com/kuzivakwashetembo8";
+const slugify = (n: string) =>
+  n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
 const projects = [
   {
     name: "First Aid",
@@ -160,8 +164,11 @@ export function Projects() {
                       <div className="absolute right-10 top-1/3 h-20 w-20 rounded-full bg-[oklch(0.78_0.18_220)] opacity-30 blur-2xl animate-float" style={{ animationDelay: "1.2s" }} />
                     </div>
 
-                    <article
-                      className="relative flex w-full flex-col overflow-hidden rounded-tl-3xl rounded-br-3xl glass p-8 text-white backdrop-blur-3xl lg:p-10"
+                    <a
+                      href={`${GITHUB_BASE}/${slugify(p.name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative flex w-full flex-col overflow-hidden rounded-tl-3xl rounded-br-3xl glass p-8 text-white backdrop-blur-3xl lg:p-10 transition hover:scale-[1.01]"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
@@ -190,7 +197,7 @@ export function Projects() {
                           {p.outcome}
                         </div>
                       </div>
-                    </article>
+                    </a>
                   </div>
                 </div>
               );

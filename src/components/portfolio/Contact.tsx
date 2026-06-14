@@ -1,7 +1,35 @@
+import { useState } from "react";
 import { Section } from "./Section";
-import { Mail, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Github, Phone, Send, Loader2 } from "lucide-react";
+import { sendContactEmail } from "@/lib/contact.functions";
+import { toast } from "sonner";
 
 export function Contact() {
+  const [submitting, setSubmitting] = useState(false);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setSubmitting(true);
+    try {
+      await sendContactEmail({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          subject: String(fd.get("subject") ?? ""),
+          message: String(fd.get("message") ?? ""),
+        },
+      });
+      toast.success("Message sent. I'll be in touch shortly.");
+      (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again or email me directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <Section id="contact" className="pb-24" reveal="fade">
       <div className="relative overflow-hidden rounded-[2.5rem] glass-strong p-8 sm:p-12 lg:p-16 shadow-neon">
@@ -24,59 +52,53 @@ export function Contact() {
 
             <ul className="mt-8 space-y-3">
               <li>
-                <a href="mailto:hello@kct.dev" className="group flex items-center gap-3 text-sm">
+                <a href="mailto:dev@kuzivakwashe.online" className="group flex items-center gap-3 text-sm">
                   <span className="grid h-9 w-9 place-items-center rounded-xl glass shadow-glow-violet group-hover:bg-gradient-neon">
                     <Mail className="h-4 w-4" />
                   </span>
-                  hello@kct.dev
+                  dev@kuzivakwashe.online
                 </a>
               </li>
               <li>
-                <a href="#" className="group flex items-center gap-3 text-sm">
+                <a href="tel:+27694893925" className="group flex items-center gap-3 text-sm">
                   <span className="grid h-9 w-9 place-items-center rounded-xl glass shadow-glow-cyan group-hover:bg-gradient-neon">
-                    <Linkedin className="h-4 w-4" />
+                    <Phone className="h-4 w-4" />
                   </span>
-                  linkedin.com/in/kct
+                  +27 69 489 3925
                 </a>
               </li>
               <li>
-                <a href="#" className="group flex items-center gap-3 text-sm">
+                <a href="https://github.com/kuzivakwashetembo8" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm">
                   <span className="grid h-9 w-9 place-items-center rounded-xl glass shadow-glow-magenta group-hover:bg-gradient-neon">
                     <Github className="h-4 w-4" />
                   </span>
-                  github.com/kct
+                  github.com/kuzivakwashetembo8
                 </a>
               </li>
             </ul>
           </div>
 
-          <form
-            className="glass rounded-2xl p-6 sm:p-8"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thanks, I'll be in touch shortly.");
-            }}
-          >
+          <form className="glass rounded-2xl p-6 sm:p-8" onSubmit={onSubmit}>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Name</span>
-                <input required type="text" className="mt-1.5 w-full rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
+                <input required name="name" type="text" className="mt-1.5 w-full rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
               </label>
               <label className="block">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Email</span>
-                <input required type="email" className="mt-1.5 w-full rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
+                <input required name="email" type="email" className="mt-1.5 w-full rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
               </label>
             </div>
             <label className="mt-4 block">
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Subject</span>
-              <input type="text" className="mt-1.5 w-full rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
+              <input name="subject" type="text" className="mt-1.5 w-full rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
             </label>
             <label className="mt-4 block">
               <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Project Details</span>
-              <textarea required rows={5} className="mt-1.5 w-full resize-none rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
+              <textarea required name="message" rows={5} className="mt-1.5 w-full resize-none rounded-xl border border-border bg-[oklch(0.15_0.07_272/0.5)] px-3.5 py-2.5 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] focus:ring-1 focus:ring-[oklch(0.66_0.27_305)]" />
             </label>
-            <button type="submit" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-neon py-3.5 text-sm font-semibold text-background shadow-neon transition hover:translate-y-[-2px]">
-              Send Message <Send className="h-4 w-4" />
+            <button type="submit" disabled={submitting} className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-neon py-3.5 text-sm font-semibold text-background shadow-neon transition hover:translate-y-[-2px] disabled:opacity-60 disabled:cursor-not-allowed">
+              {submitting ? <>Sending <Loader2 className="h-4 w-4 animate-spin" /></> : <>Send Message <Send className="h-4 w-4" /></>}
             </button>
           </form>
         </div>
