@@ -1,5 +1,4 @@
 import { Section, SectionHeader } from "./Section";
-import globeAsset from "@/assets/globe-new.png.asset.json";
 import { Activity, Cpu, HardDrive, Wifi } from "lucide-react";
 
 const metrics = [
