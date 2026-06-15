@@ -26,16 +26,7 @@ export function Infrastructure() {
         description="From a single landing page to a multi-region platform, I architect systems that grow with your business without breaking under pressure."
       />
 
-      <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-        <div className="relative overflow-hidden min-h-[420px] flex items-center justify-center">
-          <img
-            src={globeAsset.url}
-            alt="Global network of connected systems"
-            loading="lazy"
-            className="relative w-full max-w-[520px] animate-float"
-          />
-        </div>
-
+      <div className="mt-16 grid gap-6 lg:grid-cols-2">
         <div className="space-y-6">
           <div className="grid grid-cols-2 gap-4">
             {metrics.map((m) => (
