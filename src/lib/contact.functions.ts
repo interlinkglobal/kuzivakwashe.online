@@ -33,7 +33,7 @@ export const sendContactEmail = createServerFn({ method: "POST" })
       },
       body: JSON.stringify({
         from: "K.C.T. Portfolio <onboarding@resend.dev>",
-        to: ["dev@kuzivakwashe.online"],
+        to: ["kuzivakwashetembo8@gmail.com"],
         reply_to: data.email,
         subject,
         html,
