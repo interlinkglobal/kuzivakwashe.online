@@ -27,6 +27,30 @@ export function Infrastructure() {
       />
 
       <div className="mt-16 max-w-3xl mx-auto space-y-6">
+        <div className="grid grid-cols-2 gap-4">
+          {metrics.map((m) => (
+            <div key={m.label} className="glass rounded-2xl p-5">
+              <m.icon className={`h-5 w-5 ${m.color}`} />
+              <div className={`mt-3 font-display text-3xl font-bold ${m.color}`}>{m.value}</div>
+              <div className="mt-1 text-xs text-muted-foreground">{m.label}</div>
+            </div>
+          ))}
+        </div>
+        <div className="glass rounded-2xl p-6">
+          <div className="flex items-center justify-between">
+            <div className="font-display text-lg font-semibold">Knowledge Bases</div>
+            <span className="font-mono text-[10px] uppercase text-[oklch(0.75_0.2_150)]">● ALWAYS LEARNING</span>
+          </div>
+          <ul className="mt-4 divide-y divide-border/60">
+            {status.map((s) => (
+              <li key={s.name} className="flex items-center justify-between py-2.5 text-sm">
+                <span className="text-muted-foreground">{s.name}</span>
+                <span className="font-mono text-[oklch(0.78_0.18_220)]">{s.state}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </Section>
   );
 }
