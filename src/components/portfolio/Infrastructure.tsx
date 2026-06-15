@@ -28,15 +28,12 @@ export function Infrastructure() {
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-        <div className="relative overflow-hidden rounded-3xl min-h-[420px] flex items-center justify-center">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] w-[80%] rounded-full bg-[oklch(0.55_0.27_305/0.25)] blur-3xl animate-pulse-glow" />
-          </div>
+        <div className="relative overflow-hidden min-h-[420px] flex items-center justify-center">
           <img
             src={globeAsset.url}
             alt="Global network of connected systems"
             loading="lazy"
-            className="relative w-full max-w-[520px] animate-float drop-shadow-[0_0_60px_oklch(0.66_0.27_305/0.55)]"
+            className="relative w-full max-w-[520px] animate-float"
           />
         </div>
 
