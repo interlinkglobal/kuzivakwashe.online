@@ -4,7 +4,7 @@ Personal portfolio of Kuzivakwashe Tembo (K.C.T.), an IT specialist focused on
 end-user computing, networks, cloud, cybersecurity, automation, data and AI.
 
 ## Site
-- Home: https://kctportfolio.lovable.app/
+- Home: https://kuzivakwashe.online/
 
 ## Key sections (single-page)
 - Expertise, Capabilities, Projects, Systems, Stack, Journey, Philosophy, Contact

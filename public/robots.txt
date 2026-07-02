@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://kctportfolio.lovable.app/sitemap.xml
+Sitemap: https://kuzivakwashe.online/sitemap.xml
