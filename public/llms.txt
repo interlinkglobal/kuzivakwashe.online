@@ -1,0 +1,15 @@
+# K.C.T. — Kuzivakwashe Tembo
+
+Personal portfolio of Kuzivakwashe Tembo (K.C.T.), an IT specialist focused on
+end-user computing, networks, cloud, cybersecurity, automation, data and AI.
+
+## Site
+- Home: https://kctportfolio.lovable.app/
+
+## Key sections (single-page)
+- Expertise, Capabilities, Projects, Systems, Stack, Journey, Philosophy, Contact
+
+## Contact
+- Email: dev@kuzivakwashe.online
+- Phone: +27 69 489 3925
+- GitHub: https://github.com/kuzivakwashetembo8

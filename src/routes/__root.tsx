@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_LANG, SITE_NAME, THEME_COLOR } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -77,24 +78,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "KCT Tech Core is a premium personal portfolio website showcasing broad IT expertise." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "KCT Tech Core is a premium personal portfolio website showcasing broad IT expertise." },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
+      { name: "author", content: "Kuzivakwashe Tembo" },
+      { name: "theme-color", content: THEME_COLOR },
+      { name: "color-scheme", content: "dark" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { property: "og:site_name", content: SITE_NAME },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "KCT Tech Core is a premium personal portfolio website showcasing broad IT expertise." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fbb2fc2d-4e8b-433c-b942-6a659a9e3a8d/id-preview-204eebe1--34608f31-8c4d-4376-9cf8-b87c97cb042e.lovable.app-1780866531384.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fbb2fc2d-4e8b-433c-b942-6a659a9e3a8d/id-preview-204eebe1--34608f31-8c4d-4376-9cf8-b87c97cb042e.lovable.app-1780866531384.png" },
+      { property: "og:locale", content: "en_ZA" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -111,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang={SITE_LANG}>
       <head>
         <HeadContent />
       </head>
