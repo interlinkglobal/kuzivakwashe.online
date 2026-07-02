@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: DEFAULT_TITLE },
       { name: "description", content: DEFAULT_DESCRIPTION },
+      { name: "keywords", content: "Kuzivakwashe Tembo, Kuzivakwashe, K.C.T., KCT, Casey Tembo, Kuzi Tembo, web developer, full-stack developer, front-end developer, back-end developer, React developer, TypeScript, TanStack Start, Next.js, Node.js, Python, computer technician, IT specialist, end user computing, networking, cloud, cybersecurity, automation, AI, hard coding, vibe coding, South Africa web developer, portfolio, kuzivakwashe.online" },
       { name: "author", content: "Kuzivakwashe Tembo" },
       { name: "theme-color", content: THEME_COLOR },
       { name: "color-scheme", content: "dark" },
