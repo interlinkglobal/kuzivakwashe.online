@@ -2,7 +2,7 @@
 // Single-page site: values here are the source of truth for head metadata,
 // JSON-LD, sitemap and robots.
 
-export const SITE_URL = "https://kctportfolio.lovable.app";
+export const SITE_URL = "https://kuzivakwashe.online";
 export const SITE_NAME = "K.C.T. — Kuzivakwashe Tembo";
 export const SITE_LOCALE = "en_ZA";
 export const SITE_LANG = "en-ZA";
