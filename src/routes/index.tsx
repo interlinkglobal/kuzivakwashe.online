@@ -12,6 +12,7 @@ import { Philosophy } from "@/components/portfolio/Philosophy";
 import { Contact } from "@/components/portfolio/Contact";
 import { FloatingContact } from "@/components/portfolio/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
+import { SeoContent } from "@/components/portfolio/SeoContent";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_TITLE,
@@ -56,6 +57,7 @@ function Index() {
   return (
     <div className="relative min-h-screen overflow-hidden text-foreground">
       <Nav />
+      <SeoContent />
       <main>
         <Hero />
         <Expertise />
