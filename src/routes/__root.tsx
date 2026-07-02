@@ -89,6 +89,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_ZA" },
       { name: "twitter:card", content: "summary_large_image" },
+      { title: "Kuzivakwashe Casey Tembo End User Computing & Web Design Pro" },
+      { property: "og:title", content: "Kuzivakwashe Casey Tembo End User Computing & Web Design Pro" },
+      { name: "twitter:title", content: "Kuzivakwashe Casey Tembo End User Computing & Web Design Pro" },
+      { name: "description", content: "K.C.T known as Casey is a professional in End User Computing & Responsive Web Design specializing website development, application testing & digital solutions." },
+      { property: "og:description", content: "K.C.T known as Casey is a professional in End User Computing & Responsive Web Design specializing website development, application testing & digital solutions." },
+      { name: "twitter:description", content: "K.C.T known as Casey is a professional in End User Computing & Responsive Web Design specializing website development, application testing & digital solutions." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/50GmLf4XmhUiPZmZctdALi5Lt7u2/social-images/social-1783013696860-KCT_Banner.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/50GmLf4XmhUiPZmZctdALi5Lt7u2/social-images/social-1783013696860-KCT_Banner.webp" },
     ],
     links: [
       {
