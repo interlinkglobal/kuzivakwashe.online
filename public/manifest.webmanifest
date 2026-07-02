@@ -1,0 +1,16 @@
+{
+  "name": "K.C.T. — Kuzivakwashe Tembo",
+  "short_name": "K.C.T.",
+  "description": "Portfolio of Kuzivakwashe Tembo — IT specialist digitalizing the legacy work stack.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0714",
+  "theme_color": "#0b0714",
+  "lang": "en-ZA",
+  "dir": "ltr",
+  "categories": ["portfolio", "productivity", "business"],
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}
