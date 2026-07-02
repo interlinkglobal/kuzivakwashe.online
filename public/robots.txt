@@ -1,5 +1,29 @@
+# Canonical host: https://kuzivakwashe.online
+# Non-canonical hosts (preview subdomains, www) are 301-redirected at the edge
+# and additionally send X-Robots-Tag: noindex, nofollow.
+
 User-agent: *
 Allow: /
 Disallow: /api/
 
+# Explicitly welcome major search + AI crawlers.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://kuzivakwashe.online/sitemap.xml
+Host: kuzivakwashe.online
