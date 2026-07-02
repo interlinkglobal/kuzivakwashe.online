@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "c2e9c6d9-250a-424c-aa95-01b69f8c7634",
-  "project_id": "34608f31-8c4d-4376-9cf8-b87c97cb042e",
-  "url": "/__l5e/assets-v1/c2e9c6d9-250a-424c-aa95-01b69f8c7634/globe.png",
-  "r2_key": "a/v1/34608f31-8c4d-4376-9cf8-b87c97cb042e/c2e9c6d9-250a-424c-aa95-01b69f8c7634/globe.png",
-  "original_filename": "globe.png",
-  "size": 2012064,
   "content_type": "image/png",
-  "created_at": "2026-06-14T16:09:10Z"
+  "created_at": "2026-06-14T16:09:10Z",
+  "original_filename": "globe.png",
+  "project_id": "74a7e823-cd58-4cb3-847d-3c08dcc42fba",
+  "r2_key": "a/v1/74a7e823-cd58-4cb3-847d-3c08dcc42fba/c2e9c6d9-250a-424c-aa95-01b69f8c7634/globe.png",
+  "size": 2012064,
+  "url": "/__l5e/assets-v1/c2e9c6d9-250a-424c-aa95-01b69f8c7634/globe.png",
+  "version": 1
 }
