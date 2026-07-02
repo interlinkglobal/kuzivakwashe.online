@@ -12,15 +12,41 @@ import { Philosophy } from "@/components/portfolio/Philosophy";
 import { Contact } from "@/components/portfolio/Contact";
 import { FloatingContact } from "@/components/portfolio/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  OG_IMAGE,
+  OG_IMAGE_ALT,
+  SITE_URL,
+  personJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "K.C.T., IT Specialist · Networks, Cloud, Security, AI" },
-      { name: "description", content: "Portfolio of K.C.T., an IT specialist designing and operating resilient systems across networks, cloud, infrastructure, security, automation, data and AI." },
-      { property: "og:title", content: "K.C.T., IT Specialist" },
-      { property: "og:description", content: "End-to-end technology: networking, cloud, infrastructure, cybersecurity, automation, analytics, and AI." },
-      { property: "og:type", content: "website" },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESCRIPTION },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(personJsonLd),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(websiteJsonLd),
+      },
     ],
   }),
   component: Index,
