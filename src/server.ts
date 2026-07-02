@@ -37,12 +37,67 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
+// Canonical production host. Everything else (www, preview subdomains,
+// lovable.app previews) 301s here so link equity and canonical signals
+// consolidate on a single domain.
+const CANONICAL_HOST = "kuzivakwashe.online";
+
+function canonicalRedirect(request: Request): Response | null {
+  const url = new URL(request.url);
+  const host = url.hostname;
+
+  // Never redirect localhost / sandbox / private hosts.
+  if (
+    host === CANONICAL_HOST ||
+    host === "localhost" ||
+    host.endsWith(".localhost") ||
+    host.endsWith(".local") ||
+    /^\d+\.\d+\.\d+\.\d+$/.test(host)
+  ) {
+    return null;
+  }
+
+  // www.kuzivakwashe.online -> kuzivakwashe.online (strict 301).
+  if (host === `www.${CANONICAL_HOST}`) {
+    url.hostname = CANONICAL_HOST;
+    url.protocol = "https:";
+    return Response.redirect(url.toString(), 301);
+  }
+
+  return null;
+}
+
+// Add crawler-directed headers:
+// - noindex any non-canonical host (preview / staging domains) so Google
+//   never indexes the lovable.app preview.
+// - noindex /api/* endpoints regardless of host.
+function applyRobotsHeaders(request: Request, response: Response): Response {
+  const url = new URL(request.url);
+  const host = url.hostname;
+  const isCanonical = host === CANONICAL_HOST;
+  const isApi = url.pathname.startsWith("/api/");
+
+  if (isCanonical && !isApi) return response;
+
+  const headers = new Headers(response.headers);
+  headers.set("X-Robots-Tag", "noindex, nofollow");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const redirect = canonicalRedirect(request);
+    if (redirect) return redirect;
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      return applyRobotsHeaders(request, normalized);
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
