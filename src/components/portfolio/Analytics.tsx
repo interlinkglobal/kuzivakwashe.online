@@ -84,14 +84,14 @@ export function Analytics() {
             </div>
           </div>
           <ul className="mt-6 space-y-4 text-sm">
-            <li className="rounded-xl border-l-2 border-[oklch(0.78_0.18_220)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
+            <li className="insight-item rounded-xl border-l-2 border-[oklch(0.78_0.18_220)] p-3">
               Demand for <span className="font-medium text-foreground">AI-powered websites</span> is the fastest growing service this quarter.
             </li>
-            <li className="rounded-xl border-l-2 border-[oklch(0.66_0.27_305)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
+            <li className="insight-item rounded-xl border-l-2 border-[oklch(0.66_0.27_305)] p-3">
               Clients who pair <span className="font-medium text-foreground">design with development</span> launch 2x faster on average.
             </li>
-            <li className="rounded-xl border-l-2 border-[oklch(0.70_0.32_340)] bg-[oklch(0.2_0.08_278/0.4)] p-3">
-              Most enquiries arrive on <span className="font-medium text-foreground">weekday evenings</span> — reply turnaround under 4 hours.
+            <li className="insight-item rounded-xl border-l-2 border-[oklch(0.70_0.32_340)] p-3">
+              Most enquiries arrive on <span className="font-medium text-foreground">weekday evenings</span>, reply turnaround under 4 hours.
             </li>
           </ul>
         </div>
