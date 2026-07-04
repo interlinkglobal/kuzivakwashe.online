@@ -5,10 +5,11 @@ import profileAsset from "@/assets/kct-profile-new.jpg.asset.json";
 const profilePic = profileAsset.url;
 
 function ThemeToggle() {
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
   useEffect(() => {
     const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
-    const isLight = stored === "light";
+    // Default to LIGHT mode unless the user explicitly stored "dark".
+    const isLight = stored !== "dark";
     setLight(isLight);
     document.documentElement.classList.toggle("light", isLight);
   }, []);
@@ -32,10 +33,10 @@ function ThemeToggle() {
 
 const links = [
   { href: "#expertise", label: "Expertise" },
+  { href: "#skillset", label: "Skillset" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#projects", label: "Projects" },
   { href: "#infrastructure", label: "Systems" },
-  { href: "#ecosystem", label: "Stack" },
   { href: "#journey", label: "Journey" },
 ];
 
@@ -52,15 +53,16 @@ export function Nav() {
     <>
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto mt-4 max-w-6xl px-4">
-        <nav className="glass-strong flex items-center justify-between rounded-2xl px-5 py-3">
+        <nav className="glass-strong nav-shadow flex items-center justify-between rounded-2xl px-5 py-3">
           <div className="flex items-center gap-2.5">
             <button
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open profile photo"
-              className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
+              className="profile-avatar relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
             >
               <img src={profilePic} alt="Kuzi profile" className="h-full w-full object-cover" />
+              <span aria-hidden className="profile-shimmer" />
             </button>
             <Link to="/" className="font-display text-base font-semibold tracking-tight">K.C.T.</Link>
           </div>
