@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Section, SectionHeader } from "./Section";
-import { FileText, FileUser } from "lucide-react";
+import { FileText, FileUser, X } from "lucide-react";
 
 export function Skillset() {
+  const [showCV, setShowCV] = useState(false);
+  const [showCoverLetter, setShowCoverLetter] = useState(false);
+
   return (
     <Section id="skillset" reveal="up">
       <SectionHeader
@@ -32,21 +36,77 @@ export function Skillset() {
           </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="mailto:dev@kuzivakwashe.online?subject=CV%20request"
+            <button
+              onClick={() => setShowCV(true)}
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-neon px-5 py-3 text-sm font-semibold text-background shadow-neon transition hover:translate-y-[-2px]"
             >
               <FileUser className="h-4 w-4" /> View CV
-            </a>
-            <a
-              href="mailto:dev@kuzivakwashe.online?subject=Cover%20Letter%20request"
+            </button>
+            <button
+              onClick={() => setShowCoverLetter(true)}
               className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-[oklch(0.3_0.1_285/0.25)]"
             >
               <FileText className="h-4 w-4" /> View Cover Letter
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* CV Modal */}
+      {showCV && (
+        <div
+          className="fixed inset-0 z-[100] grid place-items-center bg-background/80 backdrop-blur-xl animate-in fade-in p-4"
+          onClick={() => setShowCV(false)}
+        >
+          <div
+            className="relative w-full max-h-[90vh] max-w-4xl glass-strong rounded-3xl shadow-neon animate-in zoom-in-90 duration-300 overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowCV(false)}
+              aria-label="Close"
+              className="absolute right-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full glass hover:scale-110 transition"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <iframe
+              src="https://drive.google.com/file/d/1IDEKc3Rml2sV_TN7A5Dg6zwTs1p95Vs9/preview"
+              className="w-full h-full"
+              allow="autoplay"
+              title="CV"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Cover Letter Modal */}
+      {showCoverLetter && (
+        <div
+          className="fixed inset-0 z-[100] grid place-items-center bg-background/80 backdrop-blur-xl animate-in fade-in p-4"
+          onClick={() => setShowCoverLetter(false)}
+        >
+          <div
+            className="relative w-full max-h-[90vh] max-w-4xl glass-strong rounded-3xl shadow-neon animate-in zoom-in-90 duration-300 overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowCoverLetter(false)}
+              aria-label="Close"
+              className="absolute right-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full glass hover:scale-110 transition"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <iframe
+              src="https://drive.google.com/file/d/1F2-ig0q6snW0EzoNjZ_rKRrDhHnfG3yK/preview"
+              className="w-full h-full"
+              allow="autoplay"
+              title="Cover Letter"
+            />
+          </div>
+        </div>
+      )}
     </Section>
   );
 }
