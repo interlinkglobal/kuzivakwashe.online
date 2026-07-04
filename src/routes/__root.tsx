@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "keywords", content: "Kuzivakwashe Tembo, Kuzivakwashe, K.C.T., KCT, Casey Tembo, Kuzi Tembo, web developer, full-stack developer, front-end developer, back-end developer, React developer, TypeScript, TanStack Start, Next.js, Node.js, Python, computer technician, IT specialist, end user computing, networking, cloud, cybersecurity, automation, AI, hard coding, vibe coding, South Africa web developer, portfolio, kuzivakwashe.online" },
       { name: "author", content: "Kuzivakwashe Tembo" },
       { name: "theme-color", content: THEME_COLOR },
-      { name: "color-scheme", content: "dark" },
+      { name: "color-scheme", content: "light dark" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:type", content: "website" },
@@ -121,9 +121,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang={SITE_LANG}>
+    <html lang={SITE_LANG} className="light">
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('light',t!== 'dark');}catch(e){}`,
+          }}
+        />
       </head>
       <body>
         {children}

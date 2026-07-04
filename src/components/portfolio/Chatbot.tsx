@@ -13,8 +13,8 @@ function ContactCard() {
       <a href="tel:+27694893925" className="flex items-center gap-2.5 hover:text-[oklch(0.66_0.27_305)] transition">
         <Phone className="h-4 w-4" /> +27 69 489 3925
       </a>
-      <a href="https://github.com/kuzivakwashetembo8" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:text-[oklch(0.70_0.32_340)] transition">
-        <Github className="h-4 w-4" /> github.com/kuzivakwashetembo8
+      <a href="https://github.com/dev-kuzivakwashe" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:text-[oklch(0.70_0.32_340)] transition">
+        <Github className="h-4 w-4" /> github.com/dev-kuzivakwashe
       </a>
     </div>
   );

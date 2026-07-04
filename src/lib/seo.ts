@@ -3,14 +3,14 @@
 // JSON-LD, sitemap and robots.
 
 export const SITE_URL = "https://kuzivakwashe.online";
-export const SITE_NAME = "K.C.T. — Kuzivakwashe Tembo";
+export const SITE_NAME = "K.C.T. Kuzivakwashe Tembo";
 export const SITE_LOCALE = "en_ZA";
 export const SITE_LANG = "en-ZA";
 export const THEME_COLOR = "#0b0714";
 export const BACKGROUND_COLOR = "#0b0714";
 
 export const DEFAULT_TITLE =
-  "K.C.T. — IT Specialist · Networks, Cloud, Security & AI";
+  "K.C.T. IT Specialist, Networks, Cloud, Security & AI";
 export const DEFAULT_DESCRIPTION =
   "Portfolio of Kuzivakwashe Tembo (K.C.T.), an end-user computing and IT specialist digitalizing the legacy work stack across networks, cloud, infrastructure, cybersecurity, automation, data and AI.";
 
@@ -18,13 +18,13 @@ export const DEFAULT_DESCRIPTION =
 export const OG_IMAGE =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fbb2fc2d-4e8b-433c-b942-6a659a9e3a8d/id-preview-204eebe1--34608f31-8c4d-4376-9cf8-b87c97cb042e.lovable.app-1780866531384.png";
 export const OG_IMAGE_ALT =
-  "K.C.T. portfolio — Digitalizing the legacy work stack";
+  "K.C.T. portfolio, digitalizing the legacy work stack";
 
 export const CONTACT = {
   email: "dev@kuzivakwashe.online",
   phone: "+27694893925",
   phoneDisplay: "+27 69 489 3925",
-  github: "https://github.com/kuzivakwashetembo8",
+  github: "https://github.com/dev-kuzivakwashe",
 };
 
 export const SAME_AS = [CONTACT.github];
