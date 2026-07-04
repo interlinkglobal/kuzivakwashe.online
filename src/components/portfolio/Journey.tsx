@@ -53,12 +53,12 @@ export function Journey() {
               Some of these projects are still in progress and ship continuously on my GitHub.
             </p>
             <a
-              href="https://github.com/kuzi-kct"
+              href="https://github.com/dev-kuzivakwashe"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 font-mono text-xs text-[oklch(0.78_0.18_220)] hover:text-foreground"
             >
-              github.com/kuzi-kct →
+              github.com/dev-kuzivakwashe →
             </a>
           </div>
         </aside>

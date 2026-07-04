@@ -1,8 +1,34 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
-import profileAsset from "@/assets/kct-profile.jpg.asset.json";
+import { Moon, Sun, X } from "lucide-react";
+import profileAsset from "@/assets/kct-profile-new.jpg.asset.json";
 const profilePic = profileAsset.url;
+
+function ThemeToggle() {
+  const [light, setLight] = useState(false);
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    const isLight = stored === "light";
+    setLight(isLight);
+    document.documentElement.classList.toggle("light", isLight);
+  }, []);
+  const toggle = () => {
+    const next = !light;
+    setLight(next);
+    document.documentElement.classList.toggle("light", next);
+    try { localStorage.setItem("theme", next ? "light" : "dark"); } catch {}
+  };
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={light ? "Switch to dark mode" : "Switch to light mode"}
+      className="grid h-9 w-9 place-items-center rounded-full glass text-foreground transition hover:scale-110"
+    >
+      {light ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+    </button>
+  );
+}
 
 const links = [
   { href: "#expertise", label: "Expertise" },
@@ -47,12 +73,15 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
-            className="rounded-xl bg-white px-4 py-2 text-sm font-medium text-background transition hover:bg-white/90"
-          >
-            Let's Connect →
-          </a>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href="#contact"
+              className="rounded-xl bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:opacity-90"
+            >
+              Let's Connect →
+            </a>
+          </div>
         </nav>
       </div>
     </header>
