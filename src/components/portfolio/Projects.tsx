@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Section, SectionHeader } from "./Section";
 
-const GITHUB_BASE = "https://github.com/kuzivakwashetembo8";
+const GITHUB_BASE = "https://github.com/dev-kuzivakwashe";
 const slugify = (n: string) =>
   n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 

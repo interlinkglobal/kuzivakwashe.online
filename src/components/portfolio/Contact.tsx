@@ -68,11 +68,11 @@ export function Contact() {
                 </a>
               </li>
               <li>
-                <a href="https://github.com/kuzivakwashetembo8" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm">
+                <a href="https://github.com/dev-kuzivakwashe" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-sm">
                   <span className="grid h-9 w-9 place-items-center rounded-xl glass shadow-glow-magenta group-hover:bg-gradient-neon">
                     <Github className="h-4 w-4" />
                   </span>
-                  github.com/kuzivakwashetembo8
+                  github.com/dev-kuzivakwashe
                 </a>
               </li>
             </ul>
