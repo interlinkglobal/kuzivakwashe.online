@@ -33,14 +33,11 @@ export function Hero() {
             stack.
           </h1>
           <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground sm:text-lg">
-            I'm <span className="font-medium">Kuzi</span>, a software technician
-            who builds products with products more than products with code. My
-            work spans <span className="font-medium">End User Computing</span>,
+            My work spans <span className="font-medium">End User Computing</span>,
             <span className="font-medium"> social media &amp; digital literacy</span>,
             <span className="font-medium"> Artificial Intelligence</span>,
             practical <span className="font-medium">cybersecurity</span>,
-            <span className="font-medium"> POPI Act</span> compliant workflows,
-            and graduate <span className="font-medium">work readiness</span>.
+            <span className="font-medium"> POPI Act compliance &amp; production readiness</span>.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a href="#projects" className="rounded-xl bg-gradient-neon px-6 py-3.5 text-sm font-semibold text-background shadow-neon transition hover:translate-y-[-2px]">
