@@ -80,23 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: DEFAULT_TITLE },
       { name: "description", content: DEFAULT_DESCRIPTION },
-      { name: "keywords", content: "Kuzivakwashe Tembo, Kuzivakwashe, K.C.T., KCT, Casey Tembo, Kuzi Tembo, web developer, full-stack developer, front-end developer, back-end developer, React deve[...]
       { name: "author", content: "Kuzivakwashe Tembo" },
       { name: "theme-color", content: THEME_COLOR },
       { name: "color-scheme", content: "light dark" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "en_ZA" },
+      { property: "og:locale", content: SITE_LANG },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Kuzivakwashe Casey Tembo End User Computing & Web Design Pro" },
-      { property: "og:title", content: "Kuzivakwashe Casey Tembo End User Computing & Web Design Pro" },
-      { name: "twitter:title", content: "Kuzivakwashe Casey Tembo End User Computing & Web Design Pro" },
-      { name: "description", content: "K.C.T known as Casey is a professional in End User Computing & Responsive Web Design specializing website development, application testing & digital solution[...]
-      { property: "og:description", content: "K.C.T known as Casey is a professional in End User Computing & Responsive Web Design specializing website development, application testing & digital s[...]
-      { name: "twitter:description", content: "K.C.T known as Casey is a professional in End User Computing & Responsive Web Design specializing website development, application testing & digital [...]
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/50GmLf4XmhUiPZmZctdALi5Lt7u2/social-images/social-1783013696860-KCT_Banner.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/50GmLf4XmhUiPZmZctdALi5Lt7u2/social-images/social-1783013696860-KCT_Banner.webp" },
     ],
     links: [
       {
