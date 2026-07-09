@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Section, SectionHeader } from "./Section";
 import { FileText, FileUser, X } from "lucide-react";
+import skillsetAsset from "@/assets/skillset.jpg.asset.json";
 
 export function Skillset() {
   const [showCV, setShowCV] = useState(false);
