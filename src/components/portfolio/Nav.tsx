@@ -42,15 +42,25 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [intro, setIntro] = useState(true);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const t = setTimeout(() => setIntro(false), 4000);
+    return () => { window.removeEventListener("keydown", onKey); clearTimeout(t); };
   }, []);
 
   return (
     <>
+    {intro && (
+      <div className="profile-intro-overlay" aria-hidden>
+        <div className="profile-intro-image">
+          <img src={profilePic} alt="" />
+          <span className="profile-intro-shimmer" />
+        </div>
+      </div>
+    )}
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto mt-4 max-w-6xl px-4">
         <nav className="glass-strong nav-shadow flex items-center justify-between rounded-2xl px-5 py-3">
@@ -59,10 +69,9 @@ export function Nav() {
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open profile photo"
-              className="profile-avatar relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
+              className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
             >
               <img src={profilePic} alt="Kuzi profile" className="h-full w-full object-cover" />
-              <span aria-hidden className="profile-shimmer" />
             </button>
             <Link to="/" className="font-display text-base font-semibold tracking-tight">K.C.T.</Link>
           </div>
