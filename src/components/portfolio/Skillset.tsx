@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Section, SectionHeader } from "./Section";
 import { FileText, FileUser, X } from "lucide-react";
+import skillsetAsset from "@/assets/skillset.jpg.asset.json";
 
 export function Skillset() {
   const [showCV, setShowCV] = useState(false);
@@ -17,7 +18,7 @@ export function Skillset() {
       <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center">
         <div className="mx-auto w-full max-w-md">
           <img
-            src="https://drive.google.com/uc?export=view&id=1ssqIhBVMMI2aW0XQ-VnoR6wQY0X-h_ba"
+            src={skillsetAsset.url}
             alt="Kuzivakwashe Tembo skillset overview"
             loading="lazy"
             className="w-full h-auto object-contain shadow-neon"
@@ -32,7 +33,7 @@ export function Skillset() {
           <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[oklch(0.66_0.27_305)]" /> Comfortable across hardware, software, cloud, security and AI.</li>
             <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[oklch(0.78_0.18_220)]" /> Ships in weeks, not months, by combining products with products.</li>
-            <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[oklch(0.70_0.32_340)]" /> Grows with the client, from a landing page to a multi-region platform.<[...]</li>
+            <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[oklch(0.70_0.32_340)]" /> Grows with the client, from a landing page to a multi-region platform.</li>
           </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
