@@ -42,11 +42,13 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [intro, setIntro] = useState(true);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const t = setTimeout(() => setIntro(false), 4000);
+    return () => { window.removeEventListener("keydown", onKey); clearTimeout(t); };
   }, []);
 
   return (
@@ -59,10 +61,9 @@ export function Nav() {
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open profile photo"
-              className="profile-avatar relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
+              className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-border/60 transition hover:ring-[oklch(0.66_0.27_305)]"
             >
               <img src={profilePic} alt="Kuzi profile" className="h-full w-full object-cover" />
-              <span aria-hidden className="profile-shimmer" />
             </button>
             <Link to="/" className="font-display text-base font-semibold tracking-tight">K.C.T.</Link>
           </div>
