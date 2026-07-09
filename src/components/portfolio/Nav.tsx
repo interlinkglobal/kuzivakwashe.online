@@ -53,6 +53,14 @@ export function Nav() {
 
   return (
     <>
+    {intro && (
+      <div className="profile-intro-overlay" aria-hidden>
+        <div className="profile-intro-image">
+          <img src={profilePic} alt="" />
+          <span className="profile-intro-shimmer" />
+        </div>
+      </div>
+    )}
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto mt-4 max-w-6xl px-4">
         <nav className="glass-strong nav-shadow flex items-center justify-between rounded-2xl px-5 py-3">
