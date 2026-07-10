@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, Phone, Mail, X, Bot } from "lucide-react";
+import { MessageCircle, Phone, Mail, X, Headset } from "lucide-react";
 import { Chatbot } from "./Chatbot";
 
 const WHATSAPP_NUMBER = "27694893925";
