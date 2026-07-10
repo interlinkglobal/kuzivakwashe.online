@@ -142,6 +142,30 @@ export function Nav() {
         </div>
       </div>
     )}
+    {doc && (
+      <div
+        className="fixed inset-0 z-[110] grid place-items-center bg-background/85 backdrop-blur-xl animate-in fade-in p-3 sm:p-6"
+        onClick={() => setDoc(null)}
+      >
+        <div
+          className="relative w-full h-[92vh] max-w-6xl glass-strong rounded-2xl shadow-neon animate-in zoom-in-95 duration-300 overflow-hidden flex flex-col"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between border-b border-border/40 px-4 py-2">
+            <span className="text-sm font-medium text-foreground">{doc.title}</span>
+            <button
+              type="button"
+              onClick={() => setDoc(null)}
+              aria-label="Close"
+              className="grid h-8 w-8 place-items-center rounded-full glass hover:scale-110 transition"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <iframe src={doc.src} className="w-full flex-1" allow="autoplay" title={doc.title} />
+        </div>
+      </div>
+    )}
     </>
   );
 }
