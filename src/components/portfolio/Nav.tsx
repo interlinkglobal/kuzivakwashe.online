@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Moon, Sun, X } from "lucide-react";
+import { Moon, Sun, X, FileUser, FileText } from "lucide-react";
 import profileAsset from "@/assets/kct-profile-new.jpg.asset.json";
 const profilePic = profileAsset.url;
 
@@ -40,9 +40,13 @@ const links = [
   { href: "#journey", label: "Journey" },
 ];
 
+const CV_URL = "https://drive.google.com/file/d/1IDEKc3Rml2sV_TN7A5Dg6zwTs1p95Vs9/preview";
+const COVER_URL = "https://drive.google.com/file/d/1F2-ig0q6snW0EzoNjZ_rKRrDhHnfG3yK/preview";
+
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [intro, setIntro] = useState(true);
+  const [doc, setDoc] = useState<null | { src: string; title: string }>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -85,6 +89,22 @@ export function Nav() {
             ))}
           </ul>
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setDoc({ src: CV_URL, title: "CV / Resume" })}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-xl glass px-3 py-2 text-sm font-medium text-foreground transition hover:scale-[1.03]"
+              aria-label="View CV / Resume"
+            >
+              <FileUser className="h-4 w-4" /> CV
+            </button>
+            <button
+              type="button"
+              onClick={() => setDoc({ src: COVER_URL, title: "Cover Letter" })}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-xl glass px-3 py-2 text-sm font-medium text-foreground transition hover:scale-[1.03]"
+              aria-label="View Cover Letter"
+            >
+              <FileText className="h-4 w-4" /> Cover Letter
+            </button>
             <ThemeToggle />
             <a
               href="#contact"
@@ -119,6 +139,30 @@ export function Nav() {
             alt="Kuzi profile"
             className="max-h-[80vh] w-auto rounded-3xl object-contain shadow-neon"
           />
+        </div>
+      </div>
+    )}
+    {doc && (
+      <div
+        className="fixed inset-0 z-[110] grid place-items-center bg-background/85 backdrop-blur-xl animate-in fade-in p-3 sm:p-6"
+        onClick={() => setDoc(null)}
+      >
+        <div
+          className="relative w-full h-[92vh] max-w-6xl glass-strong rounded-2xl shadow-neon animate-in zoom-in-95 duration-300 overflow-hidden flex flex-col"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between border-b border-border/40 px-4 py-2">
+            <span className="text-sm font-medium text-foreground">{doc.title}</span>
+            <button
+              type="button"
+              onClick={() => setDoc(null)}
+              aria-label="Close"
+              className="grid h-8 w-8 place-items-center rounded-full glass hover:scale-110 transition"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <iframe src={doc.src} className="w-full flex-1" allow="autoplay" title={doc.title} />
         </div>
       </div>
     )}
