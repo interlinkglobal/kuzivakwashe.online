@@ -89,6 +89,22 @@ export function Nav() {
             ))}
           </ul>
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setDoc({ src: CV_URL, title: "CV / Resume" })}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-xl glass px-3 py-2 text-sm font-medium text-foreground transition hover:scale-[1.03]"
+              aria-label="View CV / Resume"
+            >
+              <FileUser className="h-4 w-4" /> CV
+            </button>
+            <button
+              type="button"
+              onClick={() => setDoc({ src: COVER_URL, title: "Cover Letter" })}
+              className="hidden md:inline-flex items-center gap-1.5 rounded-xl glass px-3 py-2 text-sm font-medium text-foreground transition hover:scale-[1.03]"
+              aria-label="View Cover Letter"
+            >
+              <FileText className="h-4 w-4" /> Cover Letter
+            </button>
             <ThemeToggle />
             <a
               href="#contact"
