@@ -17,7 +17,7 @@ export function FloatingContact() {
         setChatOpen(true);
         setOpen(false);
       },
-      icon: Bot,
+      icon: Headset,
       glow: "shadow-glow-violet",
     },
     {
