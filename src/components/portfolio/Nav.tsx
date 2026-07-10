@@ -40,9 +40,13 @@ const links = [
   { href: "#journey", label: "Journey" },
 ];
 
+const CV_URL = "https://drive.google.com/file/d/1IDEKc3Rml2sV_TN7A5Dg6zwTs1p95Vs9/preview";
+const COVER_URL = "https://drive.google.com/file/d/1F2-ig0q6snW0EzoNjZ_rKRrDhHnfG3yK/preview";
+
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [intro, setIntro] = useState(true);
+  const [doc, setDoc] = useState<null | { src: string; title: string }>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
