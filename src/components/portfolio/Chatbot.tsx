@@ -1,7 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
-import { X, Send, Mail, Phone, Github, Loader2 } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { X, Send, Mail, Phone, Github, Loader2, Check, User, AtSign, MessageSquare } from "lucide-react";
+import { sendContactEmail } from "@/lib/contact.functions";
+
+type Field = "name" | "email" | "message";
+
+const FIELD_META: Record<Field, { label: string; placeholder: string; icon: typeof User; type: string; multiline?: boolean }> = {
+  name: { label: "What's your name?", placeholder: "e.g. Jane Doe", icon: User, type: "text" },
+  email: { label: "Best email to reach you?", placeholder: "you@example.com", icon: AtSign, type: "email" },
+  message: { label: "What should I tell Kuzi?", placeholder: "A short message with context, timelines, budget…", icon: MessageSquare, type: "text", multiline: true },
+};
 
 function ContactCard() {
   return (
@@ -20,18 +30,102 @@ function ContactCard() {
   );
 }
 
-function renderMessage(m: UIMessage) {
-  const text = m.parts.map((p) => (p.type === "text" ? p.text : "")).join("");
-  if (text.includes("[[CONTACT_CARD]]")) {
-    const clean = text.replace(/\[\[CONTACT_CARD\]\]/g, "").trim();
-    return (
-      <>
-        {clean && <p className="whitespace-pre-wrap">{clean}</p>}
-        <ContactCard />
-      </>
-    );
-  }
-  return <p className="whitespace-pre-wrap">{text}</p>;
+function AskCard({
+  field,
+  onSubmit,
+  disabled,
+}: {
+  field: Field;
+  onSubmit: (value: string) => void;
+  disabled: boolean;
+}) {
+  const meta = FIELD_META[field];
+  const Icon = meta.icon;
+  const [value, setValue] = useState("");
+  const submit = () => {
+    const v = value.trim();
+    if (!v || disabled) return;
+    onSubmit(v);
+  };
+  return (
+    <div className="mt-2 glass-strong rounded-2xl p-4 space-y-3 text-sm">
+      <div className="flex items-center gap-2 font-display font-semibold text-foreground">
+        <Icon className="h-4 w-4" /> {meta.label}
+      </div>
+      {meta.multiline ? (
+        <textarea
+          autoFocus
+          disabled={disabled}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+              e.preventDefault();
+              submit();
+            }
+          }}
+          rows={3}
+          placeholder={meta.placeholder}
+          className="w-full resize-none rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] disabled:opacity-60"
+        />
+      ) : (
+        <input
+          autoFocus
+          disabled={disabled}
+          type={meta.type}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              submit();
+            }
+          }}
+          placeholder={meta.placeholder}
+          className="w-full rounded-xl border border-border/60 bg-background/60 px-3 py-2 text-sm outline-none focus:border-[oklch(0.66_0.27_305)] disabled:opacity-60"
+        />
+      )}
+      <button
+        type="button"
+        onClick={submit}
+        disabled={disabled || !value.trim()}
+        className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-neon px-3 py-1.5 text-xs font-medium text-background transition hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <Send className="h-3.5 w-3.5" /> Continue
+      </button>
+    </div>
+  );
+}
+
+function EmailStatusCard({ state, error }: { state: "sending" | "sent" | "error"; error?: string }) {
+  return (
+    <div className="mt-2 glass-strong rounded-2xl p-4 text-sm">
+      {state === "sending" && (
+        <div className="flex items-center gap-2 text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin" /> Sending your message to K.C.T…
+        </div>
+      )}
+      {state === "sent" && (
+        <div className="flex items-center gap-2 text-foreground">
+          <Check className="h-4 w-4 text-[oklch(0.72_0.18_150)]" />
+          Message delivered. K.C.T. will get back to you soon.
+        </div>
+      )}
+      {state === "error" && (
+        <div className="space-y-1">
+          <div className="font-medium text-foreground">Could not send message.</div>
+          <div className="text-xs text-muted-foreground">{error ?? "Please try again or email dev@kuzivakwashe.online directly."}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const ASK_RE = /\[\[ASK:(name|email|message)\]\]/;
+const SEND_RE = /\[\[SEND_EMAIL\]\]/;
+
+function messageText(m: UIMessage) {
+  return m.parts.map((p) => (p.type === "text" ? p.text : "")).join("");
 }
 
 export function Chatbot({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -42,19 +136,67 @@ export function Chatbot({ open, onClose }: { open: boolean; onClose: () => void 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  // Collected lead details (kept client-side across the conversation).
+  const [details, setDetails] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [emailState, setEmailState] = useState<null | { state: "sending" | "sent" | "error"; error?: string }>(null);
+  const sentRef = useRef(false);
+  const sendEmail = useServerFn(sendContactEmail);
+
   useEffect(() => {
     if (open) inputRef.current?.focus();
   }, [open]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages, status]);
+  }, [messages, status, emailState]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  // Find the latest assistant message and detect ASK / SEND_EMAIL directives.
+  const lastAssistant = useMemo(() => {
+    for (let i = messages.length - 1; i >= 0; i--) {
+      if (messages[i].role === "assistant") return messages[i];
+    }
+    return null;
+  }, [messages]);
+
+  const askField = useMemo<Field | null>(() => {
+    if (!lastAssistant) return null;
+    const t = messageText(lastAssistant);
+    const m = t.match(ASK_RE);
+    return m ? (m[1] as Field) : null;
+  }, [lastAssistant]);
+
+  const shouldSend = useMemo(() => {
+    if (!lastAssistant) return false;
+    return SEND_RE.test(messageText(lastAssistant));
+  }, [lastAssistant]);
+
+  // Trigger the Resend server function once when SEND_EMAIL appears.
+  useEffect(() => {
+    if (!shouldSend || sentRef.current) return;
+    const { name, email, message } = details;
+    if (!name || !email || !message) return;
+    sentRef.current = true;
+    setEmailState({ state: "sending" });
+    sendEmail({
+      data: {
+        name,
+        email,
+        subject: `New inquiry from ${name} via AI concierge`,
+        message,
+      },
+    })
+      .then(() => setEmailState({ state: "sent" }))
+      .catch((err: unknown) => {
+        const msg = err instanceof Error ? err.message : "Unknown error";
+        setEmailState({ state: "error", error: msg });
+      });
+  }, [shouldSend, details, sendEmail]);
 
   if (!open) return null;
 
@@ -65,6 +207,58 @@ export function Chatbot({ open, onClose }: { open: boolean; onClose: () => void 
     if (!text || busy) return;
     setInput("");
     await sendMessage({ text });
+  }
+
+  function submitAsk(field: Field, value: string) {
+    setDetails((d) => ({ ...d, [field]: value }));
+    sendMessage({ text: value });
+  }
+
+  function renderMessage(m: UIMessage) {
+    const text = messageText(m);
+
+    if (SEND_RE.test(text)) {
+      const clean = text.replace(SEND_RE, "").replace(ASK_RE, "").trim();
+      return (
+        <>
+          {clean && <p className="whitespace-pre-wrap">{clean}</p>}
+          {emailState && <EmailStatusCard state={emailState.state} error={emailState.error} />}
+        </>
+      );
+    }
+
+    const askMatch = text.match(ASK_RE);
+    if (askMatch) {
+      const field = askMatch[1] as Field;
+      const clean = text.replace(ASK_RE, "").trim();
+      const alreadyAnswered = !!details[field];
+      const isLatest = m.id === lastAssistant?.id;
+      return (
+        <>
+          {clean && <p className="whitespace-pre-wrap">{clean}</p>}
+          {!alreadyAnswered && isLatest ? (
+            <AskCard field={field} onSubmit={(v) => submitAsk(field, v)} disabled={busy} />
+          ) : (
+            details[field] && (
+              <div className="mt-2 text-xs text-muted-foreground">
+                Captured {field}: <span className="text-foreground">{details[field]}</span>
+              </div>
+            )
+          )}
+        </>
+      );
+    }
+
+    if (text.includes("[[CONTACT_CARD]]")) {
+      const clean = text.replace(/\[\[CONTACT_CARD\]\]/g, "").trim();
+      return (
+        <>
+          {clean && <p className="whitespace-pre-wrap">{clean}</p>}
+          <ContactCard />
+        </>
+      );
+    }
+    return <p className="whitespace-pre-wrap">{text}</p>;
   }
 
   return (
@@ -102,7 +296,7 @@ export function Chatbot({ open, onClose }: { open: boolean; onClose: () => void 
                 <div className="mt-5 flex flex-wrap justify-center gap-2">
                   {[
                     "What services do you offer?",
-                    "I need a website",
+                    "I can contact K.C.T for you",
                     "How do I contact Kuzi?",
                   ].map((q) => (
                     <button

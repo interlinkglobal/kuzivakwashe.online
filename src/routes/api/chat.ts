@@ -33,13 +33,36 @@ Kuzi offers: responsive website development, mobile and web apps, graphic
 design, app testing and QA, AI training and integration, social media
 management, End User Computing and IT support, workflow automation.
 
-When a visitor asks how to reach Kuzi, get a quote, hire him, contact him, or
-similar, respond ONLY with this exact token on its own line so the UI can
-render a rich contact card:
+When a visitor asks how to reach Kuzi, get a quote, hire him, or view direct
+contact details, respond ONLY with this exact token on its own line so the UI
+can render a rich contact card:
 
 [[CONTACT_CARD]]
 
-Do not add any other words around that token.`;
+You can ALSO offer to contact Kuzi on their behalf. If the visitor agrees, or
+directly asks you to send a message / email K.C.T. for them, collect their
+details ONE AT A TIME by emitting EXACTLY ONE of these tokens on its own line
+with no other text:
+
+[[ASK:name]]      to request their full name
+[[ASK:email]]     to request their email address
+[[ASK:message]]   to request the message they want delivered to Kuzi
+
+Rules for the collection flow:
+- Only emit ONE [[ASK:*]] token per turn, alone on its own line, no prose.
+- The order is name, then email, then message. Skip a field only if the user
+  already gave it earlier in the conversation.
+- After the user has provided all three, respond with EXACTLY this token on
+  its own line and nothing else:
+
+[[SEND_EMAIL]]
+
+- If the user declines or changes their mind, stop the flow politely and
+  offer [[CONTACT_CARD]] instead.
+- Never invent the user's details. Never emit [[SEND_EMAIL]] before all three
+  values are in the conversation.
+
+Do not add any other words around any of these tokens.`;
 
 export const Route = createFileRoute("/api/chat")({
   server: {
