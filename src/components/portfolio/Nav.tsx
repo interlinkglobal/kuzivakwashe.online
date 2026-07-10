@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Moon, Sun, X } from "lucide-react";
+import { Moon, Sun, X, FileUser, FileText } from "lucide-react";
 import profileAsset from "@/assets/kct-profile-new.jpg.asset.json";
 const profilePic = profileAsset.url;
 
