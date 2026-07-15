@@ -144,11 +144,11 @@ export function Nav() {
     )}
     {doc && (
       <div
-        className="fixed inset-0 z-[110] grid place-items-center bg-background/85 backdrop-blur-xl animate-in fade-in p-3 sm:p-6"
+        className="fixed inset-0 z-[110] grid place-items-center bg-background/85 backdrop-blur-xl animate-in fade-in p-0 sm:p-4"
         onClick={() => setDoc(null)}
       >
         <div
-          className="relative w-full h-[92vh] max-w-6xl rounded-2xl shadow-neon animate-in zoom-in-95 duration-300 overflow-hidden flex flex-col bg-[#f4f5f7]"
+          className="relative w-full h-full sm:h-[96vh] sm:max-w-6xl sm:rounded-2xl shadow-neon animate-in zoom-in-95 duration-300 overflow-hidden flex flex-col bg-[#f4f5f7]"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-2 bg-white">
