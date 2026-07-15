@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MessageCircle, Phone, Mail, X, Headset } from "lucide-react";
 import { Chatbot } from "./Chatbot";
 
