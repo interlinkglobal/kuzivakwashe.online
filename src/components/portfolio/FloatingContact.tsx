@@ -10,6 +10,14 @@ export function FloatingContact() {
   const [open, setOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
 
+  // After profile intro finishes (~4s), auto-open the contact menu to
+  // showcase the actions, then smoothly close after a few seconds.
+  useEffect(() => {
+    const openT = setTimeout(() => setOpen(true), 4200);
+    const closeT = setTimeout(() => setOpen(false), 8200);
+    return () => { clearTimeout(openT); clearTimeout(closeT); };
+  }, []);
+
   const actions = [
     {
       label: "Chat with AI",
