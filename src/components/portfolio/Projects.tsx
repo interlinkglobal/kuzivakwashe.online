@@ -6,6 +6,12 @@ import { Section, SectionHeader } from "./Section";
 const GITHUB_BASE = "https://github.com/dev-kuzivakwashe";
 const slugify = (n: string) =>
   n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const projectLinkOverrides: Record<string, string> = {
+  "First Aid": "https://firstaidapp.co.za",
+  Doclab: "https://doclab.online",
+  Kuzi: "https://gokuzi.online",
+};
+const linkFor = (name: string) => projectLinkOverrides[name] ?? `${GITHUB_BASE}/${slugify(name)}`;
 
 const projects = [
   {
