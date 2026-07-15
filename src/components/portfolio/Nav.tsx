@@ -144,32 +144,28 @@ export function Nav() {
     )}
     {doc && (
       <div
-        className="fixed inset-0 z-[110] grid place-items-center bg-background/85 backdrop-blur-xl animate-in fade-in p-0 sm:p-4"
+        className="fixed inset-0 z-[110] flex flex-col bg-[#f4f5f7] animate-in fade-in duration-300"
         onClick={() => setDoc(null)}
       >
-        <div
-          className="relative w-full h-full sm:h-[96vh] sm:max-w-6xl sm:rounded-2xl shadow-neon animate-in zoom-in-95 duration-300 overflow-hidden flex flex-col bg-[#f4f5f7]"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-2 bg-white">
-            <span className="text-sm font-medium text-neutral-800">{doc.title}</span>
-            <button
-              type="button"
-              onClick={() => setDoc(null)}
-              aria-label="Close"
-              className="grid h-8 w-8 place-items-center rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 hover:scale-110 transition"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-          <div className="flex-1 overflow-y-auto bg-[#f4f5f7]">
-            <iframe
-              src={doc.src}
-              style={{ width: "100%", height: "1500px", border: 0, background: "#f4f5f7", display: "block" }}
-              allow="autoplay"
-              title={doc.title}
-            />
-          </div>
+        <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-2 bg-white shrink-0">
+          <span className="text-sm font-medium text-neutral-800">{doc.title}</span>
+          <button
+            type="button"
+            onClick={() => setDoc(null)}
+            aria-label="Close"
+            className="grid h-9 w-9 place-items-center rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 hover:scale-110 transition"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto bg-[#f4f5f7]" onClick={(e) => e.stopPropagation()}>
+          <iframe
+            src={doc.src}
+            className="w-full min-h-full"
+            style={{ border: 0, background: "#f4f5f7", display: "block" }}
+            allow="autoplay"
+            title={doc.title}
+          />
         </div>
       </div>
     )}
