@@ -171,7 +171,7 @@ export function Projects() {
                     </div>
 
                     <a
-                      href={`${GITHUB_BASE}/${slugify(p.name)}`}
+                      href={linkFor(p.name)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="relative flex w-full flex-col overflow-hidden rounded-tl-3xl rounded-br-3xl glass p-8 text-white backdrop-blur-3xl lg:p-10 transition hover:scale-[1.01]"
