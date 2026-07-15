@@ -5,18 +5,14 @@ import profileAsset from "@/assets/kct-profile-new.jpg.asset.json";
 const profilePic = profileAsset.url;
 
 function ThemeToggle() {
-  const [light, setLight] = useState(true);
-  useEffect(() => {
-    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
-    // Default to LIGHT mode unless the user explicitly stored "dark".
-    const isLight = stored !== "dark";
-    setLight(isLight);
-    document.documentElement.classList.toggle("light", isLight);
-  }, []);
+  const [light, setLight] = useState(() =>
+    typeof document !== "undefined" ? document.documentElement.classList.contains("light") : true
+  );
   const toggle = () => {
     const next = !light;
     setLight(next);
-    document.documentElement.classList.toggle("light", next);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(next ? "light" : "dark");
     try { localStorage.setItem("theme", next ? "light" : "dark"); } catch {}
   };
   return (
