@@ -113,12 +113,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang={SITE_LANG} className="light">
+    <html lang={SITE_LANG}>
       <head>
         <HeadContent />
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('light',t!== 'dark');}catch(e){}`,
+            __html: `try{var t=Math.random()<0.5?'dark':'light';document.documentElement.classList.add(t);localStorage.setItem('theme',t);}catch(e){}`,
           }}
         />
       </head>
