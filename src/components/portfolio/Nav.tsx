@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Moon, Sun, X, FileUser, FileText } from "lucide-react";
-import profileAsset from "@/assets/kct-profile-new.jpg.asset.json";
-const profilePic = profileAsset.url;
+const profilePic = "/Casey.jpeg";
 
 function ThemeToggle() {
   const [light, setLight] = useState(() =>

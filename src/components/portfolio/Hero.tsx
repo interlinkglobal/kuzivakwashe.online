@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Info, X } from "lucide-react";
-import cert1 from "@/assets/cert-1.jpg.asset.json";
-import cert2 from "@/assets/cert-2.jpg.asset.json";
+const certificateImage = "/Certificate.jpg";
 
 export function Hero() {
   const [flipped, setFlipped] = useState(false);
@@ -69,7 +68,7 @@ export function Hero() {
                 flipped ? "rotate-y-180" : ""
               }`}
             >
-              {[cert1, cert2].map((c, i) => (
+              {[certificateImage, certificateImage].map((c, i) => (
                 <div
                   key={i}
                   className={`absolute inset-0 backface-hidden glass-strong overflow-hidden rounded-3xl p-1 shadow-neon ${
@@ -77,8 +76,8 @@ export function Hero() {
                   }`}
                 >
                   <img
-                    src={c.url}
-                    alt={`K.C.T. certification ${i + 1}`}
+                    src={c}
+                    alt="K.C.T. certification"
                     className="h-full w-full select-none rounded-[1.4rem] object-cover pointer-events-none"
                     draggable={false}
                   />
@@ -118,9 +117,8 @@ export function Hero() {
               <Info className="h-6 w-6 text-background" />
             </div>
             <p className="mt-5 text-sm leading-relaxed text-foreground/90 flex-1">
-              These images are digital representations of physical certificates that I own
-              which are available upon request. My personal details are abstracted here for
-              security purposes.
+              This image represents a physical certificate that I own and can provide
+              upon request. Personal details may be abstracted for security purposes.
             </p>
           </div>
         </div>
